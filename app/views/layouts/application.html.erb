@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BiLeQ</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-2 logo">
+            <h1>BiLeQ</h1>
+          </div>
+          <div class="col-md-8 col-md-offset-2">
+            <div class="row">
+              <ul class="nav navbar-nav navbar-right links">
+                <% if user_signed_in? && request.path.exclude?("admin") %>
+                  <li id="user-name">ようこそ、<%= current_user.name %>さん！</li>
+                  <li><%= link_to 'マイページ', new_user_path %></li>
+                  <li><%= link_to '投稿一覧', posts_path %></li>
+                  <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+                <% elsif admin_signed_in? && request.path.include?("admin") %>
+                  <li><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %></li>
+                <% else %>
+                  <li><%= link_to 'ログイン', new_user_session_path %></li>
+                  <li><%= link_to '新規登録', new_user_registration_path %></li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+
+
+    <%= yield %>
+
+    <footer>
+      <p class="footer-text">©︎2020 BiLeQ</p>
+      </footer>
+  </body>
+</html>
