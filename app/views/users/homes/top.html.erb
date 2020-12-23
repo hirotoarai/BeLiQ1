@@ -1,1 +1,31 @@
-<h4>user top</h4>
+<h3>記事一覧</h3>
+<div class="main-container">
+<div class="container">
+  <div class="row">
+    <div class="col-xs-9">
+      <table class="table">
+        <tbody>
+          <% @posts.each do |post| %>
+  				<tr>
+  				  <td>
+  				        <%= post.user.name %>
+                  <%= attachment_image_tag post.user, :profile_image, fallback: "no_image.jpg", class: "img-circle pull-left profile-thumb", size: "80x80" %>
+  					</td>
+
+  					<td>
+  					    <%= post.updated_at.strftime("%Y-%m-%d") %>
+                <%= link_to post_path(post), class: "post_#{post.id}" do %>
+                <h4><%= post.title %></h4>
+                <% end %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <div class="text-center">
+        <h4><%= paginate @posts %></h4>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

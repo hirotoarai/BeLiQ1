@@ -17,9 +17,10 @@ Rails.application.routes.draw do
   scope module: :users do
     root 'homes#top'
     get 'homes/about' => 'homes#about', as: 'about'
-    get 'users/unsubscribe' => 'users#unsubscribe', as: 'confirm_unsubscribe'
-    patch 'users/withdraw' => 'users#withdraw', as: 'withdraw_user'
-    resources :users, only: [:new, :create, :edit, :update, :destroy]
+    get 'users/:id/unsubscribe' => 'users#unsubscribe', as: 'confirm_unsubscribe'
+    patch 'users/:id/withdraw' => 'users#withdraw', as: 'withdraw_user'
+    get 'mypage' => 'users#mypage', as: 'mypage'
+    resources :users, only: [:show, :create, :edit, :update, :destroy]
     resources :posts, only: [:index, :create, :show, :edit, :update, :destroy] do
       resource :favorites, only: [:create, :destroy, :show]
       resource :comments, only: [:create, :destroy, :show]

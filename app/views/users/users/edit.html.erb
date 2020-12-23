@@ -1,1 +1,37 @@
-<h4>user edit</h4>
+<h3>ユーザー編集ページ</h3>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-3">
+       <div class="profile">
+         <!--<table class="table">-->
+        	<!--<tr>-->
+        	  <%= attachment_image_tag current_user, :profile_image, fallback: "no_image.jpg", class: "img-circle pull-left profile-thumb", size: "100x100" %>
+        	<!--</tr>-->
+
+        	<%= form_with model: @user, local: true do |f| %>
+
+            <div class="field">
+          		<%= f.label :image %>
+          		<%= f.attachment_field :profile_image, class: "user_image" %>
+          	</div>
+
+          	<div class="field">
+          		<%= f.label :name %>
+          		<%= f.text_field :name, class: "name" %>
+          	</div>
+
+          	<div class="field">
+          		<%= f.label :introduction %>
+          		<%= f.text_area :introduction, class: "introduction" %>
+          	</div>
+
+          	<div class="actions">
+          		<%= f.submit "プロフィールを変更する" %>
+          	</div>
+
+          <% end %>
+        <!--</table>-->
+       </div>
+    </div>
+  </div>
+</div>

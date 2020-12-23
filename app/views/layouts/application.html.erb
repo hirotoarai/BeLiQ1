@@ -19,16 +19,21 @@
           <div class="col-md-8 col-md-offset-2">
             <div class="row">
               <ul class="nav navbar-nav navbar-right links">
+                  <li><%= link_to 'top', root_path %></li>
+                  <li><%= link_to 'about', about_path %></li>
                 <% if user_signed_in? && request.path.exclude?("admin") %>
-                  <li id="user-name">ようこそ、<%= current_user.name %>さん！</li>
-                  <li><%= link_to 'マイページ', new_user_path %></li>
+                  <li><%= link_to 'マイページ', mypage_path %></li>
                   <li><%= link_to '投稿一覧', posts_path %></li>
-                  <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+                  <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li></br>
+                  <li id="user-name">ようこそ、<%= current_user.name %>さん！</li>
                 <% elsif admin_signed_in? && request.path.include?("admin") %>
                   <li><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %></li>
                 <% else %>
+                  <li></li>
+                  <li></li>
                   <li><%= link_to 'ログイン', new_user_session_path %></li>
                   <li><%= link_to '新規登録', new_user_registration_path %></li>
+                  <div class="col-md-12"><h5>会員登録すると記事や質問を投稿できるようになります！</h5></div>
                 <% end %>
               </ul>
             </div>
@@ -42,7 +47,21 @@
     <%= yield %>
 
     <footer>
-      <p class="footer-text">©︎2020 BiLeQ</p>
-      </footer>
+      <div class="navbar-footer">
+            <a class="navbar-logo">
+              <%= image_tag 'main_logo.png', :width => '100', :height => '100' %>
+            </a>
+      </div>
+      <p class="footer-text">©2020 BiLeQ</p>
+        <!--<div class="row">-->
+        <!--  <div class="col-md-8 col-md-offset-2">-->
+        <!--      <ul class="nav navbar-nav navbar-right links">-->
+        <!--          <li>MENU</li>-->
+        <!--          <li><%#= link_to 'top', root_path %></li>-->
+        <!--          <li><%#= link_to 'about', about_path %></li>-->
+        <!--      </ul>-->
+        <!--  </div>-->
+        <!--</div>-->
+    </footer>
   </body>
 </html>

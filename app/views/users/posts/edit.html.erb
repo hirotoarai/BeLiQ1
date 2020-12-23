@@ -1,1 +1,36 @@
-<h4>post edit</h4>
+<h3>投稿編集ページ</h3>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-3">
+     <div class="profile-image">
+       <table class="table">
+         <tbody>
+           <tr>
+               <%= attachment_image_tag(@user, :profile_image, fallback: "no_image.jpg", class: "img-circle pull-left profile-thumb", size:'100x100') %>
+           <td><%= @user.introduction %></td>
+           </tr>
+         </tbody>
+       </table>
+     </div>
+    </div>
+    <div class="form-group col-md-4 offset-md-4">
+      <%= form_with model: @post, local: true do |f| %>
+
+          	<div class="text-left">
+          		<%= f.label :タイトル %>
+          		<%= f.text_field :title, size: "100x12" %>
+          	</div>
+
+          	<div class="text-left">
+          		<%= f.label :本文 %>
+          		<%= f.text_area :body, size: "100x12" %>
+          	</div>
+
+          	<div class="test">
+          		<%= f.submit "記事を編集する" %>
+          	</div>
+
+      <% end %>
+    </div>
+  </div>
+</div>
