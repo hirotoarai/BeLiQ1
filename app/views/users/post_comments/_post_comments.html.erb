@@ -1,0 +1,14 @@
+<% post.post_comments.each do |post_comment| %>
+  <tr>
+    <td><%= post.user.name %>
+        <%= attachment_image_tag(user, :profile_image, fallback: "no_image.jpg",  class: "img-circle pull-left profile-thumb", size:'50x50') %></td>
+
+    <td><%= post_comment.content %></td>
+
+        <% if post_comment.user_id == current_user.id %>
+          <div>
+            <td><%= link_to "削除する", post_post_comment_path(post, post_comment), method: :delete, remote: true %></td>
+          </div>
+        <% end %>
+  </tr>
+<% end %>

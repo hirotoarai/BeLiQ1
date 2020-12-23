@@ -1,25 +1,25 @@
-<h3>投稿一覧</h3>
-<div class="container">
-  <div class="row">
-    <div class="col-xs-3">
-     <div class="profile-image">
-       <%#= attachment_image_tag (@user, :profile_image, fallback: "no_image.jpg", size:'50x50') %>
-     </div>
-    </div>
-    <div class="col-xs-9">
-      <table class="table">
-        <tbody>
-          <% @posts.each do |post| %>
-  				<tr>
-  					<td>
-                <%= link_to post_path(post), class: "post_#{post.id}" do %>
-                  <h4><%= post.title %></h4>
-                <% end %>
-            </td>
-          </tr>
-          <% end %>
-        </tbody>
-      </table>
+<body>
+  <div class="container">
+    <h3>投稿一覧</h3>
+    <div class="row">
+      <div class="col-xs-3">
+      </div>
+
+      <div class="col-xs-9">
+        <table class="table">
+          <tbody>
+            <% @posts.each do |post| %>
+    				<tr>
+    					<td>
+                  <%= link_to post_path(post), class: "post_#{post.id}" do %>
+                    <h4><%= post.title %></h4>
+                  <% end %>
+              </td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
-</div>
+</body>

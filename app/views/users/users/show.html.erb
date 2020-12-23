@@ -1,44 +1,46 @@
-<h3>My Page</h3>
-<div class="container">
-  <div class="row">
-    <div class="col-xs-3">
-       <div class="profile">
-         <table class="table">
-           <%# if admin_signed_in? && request.path.include?("admin") %>
-            	<tr><%= attachment_image_tag current_user, :profile_image, fallback: "no_image.jpg", class: "img-circle pull-left profile-thumb", size: "100x100" %></tr>
+<body>
+  <div class="container">
+    <h3>マイページ</h3>
+    <div class="row">
+      <div class="col-xs-3">
+         <div class="profile">
+           <table class="table">
+             <%# if admin_signed_in? && request.path.include?("admin") %>
+              	<tr><%= attachment_image_tag current_user, :profile_image, fallback: "no_image.jpg", class: "img-circle pull-left profile-thumb", size: "100x100" %></tr>
 
-            	<tr>
-            		<th>name</th>
-            		<th><%= @user.name %></th>
-            	</tr>
+              	<tr>
+              		<th>name</th>
+              		<th><%= @user.name %></th>
+              	</tr>
 
-            	<tr>
-            		<th>introduction</th>
-            		<th><%= @user.introduction %></th>
-            	</tr>
+              	<tr>
+              		<th>introduction</th>
+              		<th><%= @user.introduction %></th>
+              	</tr>
 
-            	<tr>
-            	  <%# if @user == current_user %>
-            		<th><%= link_to "プロフィールを編集する", edit_user_path(@user) %></th>
-            	  <%# end %>
-            	</tr>
+              	<tr>
+              	  <%# if @user == current_user %>
+              		<th><%= link_to "プロフィールを編集する", edit_user_path(@user) %></th>
+              	  <%# end %>
+              	</tr>
 
-            	<tr>
-            		<th><%= link_to "退会させる", confirm_unsubscribe_path(@user) %></th>
-            	</tr>
-           <%# end %>
-        </table>
-       </div>
-    </div>
+              	<tr>
+              		<th><%= link_to "退会させる", confirm_unsubscribe_path(@user) %></th>
+              	</tr>
+             <%# end %>
+          </table>
+         </div>
+      </div>
 
-    <div class="col-9">
-      <%= form_with model:@post_new do |f| %>
-        <h4>タイトル</h4>
-        <%= f.text_field :title, size: "60x12" %>
-        <h4>本文</h4>
-        <%= f.text_area :body, size: "60x12" %>
-        <%= f.submit '投稿する' %>
-      <% end %>
+      <div class="col-9">
+        <%= form_with model:@post_new do |f| %>
+          <h4>タイトル</h4>
+          <%= f.text_field :title, size: "60x12" %>
+          <h4>本文</h4>
+          <%= f.text_area :body, size: "60x12" %>
+          <%= f.submit '投稿する' %>
+        <% end %>
+      </div>
     </div>
   </div>
-</div>
+</body>
