@@ -1,37 +1,32 @@
 <body>
   <div class="container">
-    <h3>ユーザー編集ページ</h3>
+    <h3>ユーザー編集</h3>
     <div class="row">
       <div class="col-xs-3">
          <div class="profile">
-           <!--<table class="table">-->
-          	<!--<tr>-->
+           <table class="table">
+          	<tr>
           	  <%= attachment_image_tag current_user, :profile_image, fallback: "no_image.jpg", class: "img-circle pull-left profile-thumb", size: "100x100" %>
-          	<!--</tr>-->
+          	</tr>
 
           	<%= form_with model: @user, local: true do |f| %>
-
               <div class="field">
-            		<%= f.label :image %>
             		<%= f.attachment_field :profile_image, class: "user_image" %>
             	</div>
 
             	<div class="field">
-            		<%= f.label :name %>
-            		<%= f.text_field :name, class: "name" %>
+            		<%= f.text_field :name, class: "name",placeholder: "名前" %>
             	</div>
 
             	<div class="field">
-            		<%= f.label :introduction %>
-            		<%= f.text_area :introduction, class: "introduction" %>
+            		<%= f.text_area :introduction, class: "introduction",placeholder: "紹介文" %>
             	</div>
 
             	<div class="actions">
             		<%= f.submit "プロフィールを変更する" %>
             	</div>
-
             <% end %>
-          <!--</table>-->
+          </table>
          </div>
       </div>
     </div>

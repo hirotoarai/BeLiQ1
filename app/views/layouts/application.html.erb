@@ -21,16 +21,14 @@
               <ul class="nav navbar-nav navbar-right links">
                   <li><%= link_to 'top', root_path %></li>
                   <li><%= link_to 'about', about_path %></li>
-                <% if user_signed_in? && request.path.exclude?("admin") %>
+                <% if user_signed_in? %>
                   <li><%= link_to 'マイページ', mypage_path %></li>
                   <li><%= link_to '投稿一覧', posts_path %></li>
                   <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li></br>
                   <li id="user-name">ようこそ、<%= current_user.name %>さん！</li>
-                <% elsif admin_signed_in? && request.path.include?("admin") %>
+                <% elsif admin_signed_in? %>
                   <li><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %></li>
                 <% else %>
-                  <li></li>
-                  <li></li>
                   <li><%= link_to 'ログイン', new_user_session_path %></li>
                   <li><%= link_to '新規登録', new_user_registration_path %></li>
                   <div class="col-md-12"><h5>会員登録すると記事や質問を投稿できるようになります！</h5></div>

@@ -1,6 +1,6 @@
 <body>
   <div class="container">
-    <h3>My Page</h3>
+    <h3>マイページ</h3>
     <div class="row">
       <div class="col-xs-3">
          <div class="profile">
@@ -9,12 +9,12 @@
               	<tr><%= attachment_image_tag current_user, :profile_image, fallback: "no_image.jpg", class: "img-circle pull-left profile-thumb", size: "100x100" %></tr>
 
               	<tr>
-              		<th>name</th>
+              		<th>名前</th>
               		<th><%= @user.name %></th>
               	</tr>
 
               	<tr>
-              		<th>introduction</th>
+              		<th>紹介文</th>
               		<th><%= @user.introduction %></th>
               	</tr>
 
@@ -34,16 +34,19 @@
 
       <div class="col-xs-9">
         <%= form_with model: @post_new do |f| %>
-          <h4>カテゴリ</h4>
-            <%= f.select :category, [["質問", "質問"], ["投稿", "投稿"]], include_blank: "選択して下さい" %>
-          <h4>タイトル</h4>
-            <%= f.text_field :title, size: "100x12" %>
-          <h4>本文</h4>
-            <%= f.text_area :body, size: "100x12" %>
-          <h4>画像投稿</h4>
+          <h4></h4>
+            <%= f.select :category, [["質問", "質問"], ["投稿", "投稿"]], include_blank: "カテゴリを選択して下さい" %>
+          <h4></h4>
+            <%= f.text_field :title, size: "100x12",placeholder: "タイトル" %>
+          <h4></h4>
+            <%= f.text_area :body, size: "100x12",placeholder: "投稿をここに記入する" %>
+          <h4>画像投稿フォーム</h4>
             <%= f.attachment_field :post_image %>
             <%= f.submit '投稿する' %>
         <% end %>
+      </div>
+      <div class="text-center">
+        <h4><%= paginate @posts %></h4>
       </div>
     </div>
   </div>

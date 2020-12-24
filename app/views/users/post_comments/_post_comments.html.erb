@@ -1,7 +1,7 @@
 <% post.post_comments.each do |post_comment| %>
   <tr>
     <td><%= post.user.name %>
-        <%= attachment_image_tag(user, :profile_image, fallback: "no_image.jpg",  class: "img-circle pull-left profile-thumb", size:'50x50') %></td>
+        <%= attachment_image_tag(post_comment.user, :profile_image, fallback: "no_image.jpg",  class: "img-circle pull-left profile-thumb", size:'50x50') %></td>
 
     <td><%= post_comment.content %></td>
 

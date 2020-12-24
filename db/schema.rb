@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_23_134712) do
+ActiveRecord::Schema.define(version: 2020_12_23_190259) do
 
   create_table "admins", force: :cascade do |t|
     t.string "encrypted_password", default: "", null: false
@@ -58,7 +58,8 @@ ActiveRecord::Schema.define(version: 2020_12_23_134712) do
     t.datetime "updated_at", null: false
     t.string "profile_image_id"
     t.text "introduction"
-    t.boolean "is_valid"
+    t.boolean "is_valid", default: true, null: false
+    t.datetime "is_deleted"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 

@@ -1,20 +1,24 @@
-<h3>会員一覧</h3>
+<body class="splash">
   <div class="container">
-  <div class="row">
-    <div class="col-xs-3">
-       <div class="profile">
-         <table class="table">
-        	<tbody>
-        		<% @users.each do |user| %>
-        		<tr>
-        			<td><%= attachment_image_tag user, :profile_image, fallback: "no_image.jpg", class: "img-circle pull-left profile-thumb", size:'50x50' %></td>
-        			<td><%= link_to user.name, user_path(user) %></td>
-        		</tr>
-        		<% end %>
-        	</tbody>
-
-        </table>
-       </div>
+    <h3>会員一覧</h3>
+    <div class="row">
+      <div class="col-xs-6">
+         <div class="profile">
+           <table class="table">
+          	<tbody>
+          		<% @users.each do |user| %>
+          		<tr>
+          			<td><%= attachment_image_tag user, :profile_image, fallback: "no_image.jpg", class: "img-circle pull-left profile-thumb", size:'80x80' %></td>
+          			<td><%= link_to user.name, user_path(user) %></td>
+          		</tr>
+          		<% end %>
+          	</tbody>
+          </table>
+          <div class="text-center">
+            <h4><%= paginate @users %></h4>
+          </div>
+         </div>
+      </div>
     </div>
   </div>
-</div>
+</body>

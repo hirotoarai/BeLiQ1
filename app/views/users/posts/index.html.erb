@@ -10,15 +10,24 @@
           <tbody>
             <% @posts.each do |post| %>
     				<tr>
+    				  <td>
+    				    </br>
+                <h4><%= post.category %></h4>
+    				  </td>
+
     					<td>
-                  <%= link_to post_path(post), class: "post_#{post.id}" do %>
-                    <h4><%= post.title %></h4>
-                  <% end %>
+    					  投稿日:<%= post.updated_at.strftime("%Y-%m-%d") %>
+                <%= link_to post_path(post), class: "post_#{post.id}" do %>
+                  <h4><%= post.title %></h4>
+                <% end %>
               </td>
             </tr>
             <% end %>
           </tbody>
         </table>
+      </div>
+      <div class="text-center">
+        <h4><%= paginate @posts %></h4>
       </div>
     </div>
   </div>

@@ -10,6 +10,7 @@ class Users::UsersController < ApplicationController
 
   def mypage
     @post_new = Post.new
+    @posts = Post.all.page(params[:page]).per(10)
     @user = current_user
     #@post = Post.find(params[:id])
   end

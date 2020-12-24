@@ -9,5 +9,9 @@ class User < ApplicationRecord
 
   attachment :profile_image, destroy: false
 
+  # def active_for_authentication?
+  #   super && (self.is_deleted == false)
+  # end
+
   #scope :only_active, -> { where(is_active: true) }
 end
