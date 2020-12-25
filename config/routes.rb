@@ -26,5 +26,8 @@ Rails.application.routes.draw do
       resource :favorites, only: [:create, :destroy]
       resources :post_comments, only: [:create, :destroy, :show]
     end
+    resources :tags do
+      get 'posts', to: 'posts#search'
+    end
   end
 end

@@ -7,6 +7,8 @@ class Users::PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    #binding.pry
+    @post_tags = @post.tags
     @post_new = Post.new
     @post_comment = PostComment.new
     @user = User.find(@post.user_id)
@@ -17,9 +19,12 @@ class Users::PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    tag_list = params[:post][:tag_name].split(nil)
     @post.user_id = current_user.id
-    @post.save!
-    redirect_to posts_path
+    if @post.save
+      @post.save_tag(tag_list)
+      redirect_to posts_path
+    end
   end
 
   def edit
@@ -41,6 +46,13 @@ class Users::PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.destroy
     redirect_to posts_path
+  end
+
+  def search
+    #@tag_list = Tag.all
+    @tag = Tag.find(params[:tag_id])
+    @posts = @tag.posts.page(params[:page]).per(10)
+    #binding.pry
   end
 
   private

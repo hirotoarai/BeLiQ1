@@ -9,7 +9,7 @@
           	  <%= attachment_image_tag current_user, :profile_image, fallback: "no_image.jpg", class: "img-circle pull-left profile-thumb", size: "100x100" %>
           	</tr>
 
-          	<%= form_with model: @user, local: true do |f| %>
+          	<%= form_with model: @user do |f| %>
               <div class="field">
             		<%= f.attachment_field :profile_image, class: "user_image" %>
             	</div>

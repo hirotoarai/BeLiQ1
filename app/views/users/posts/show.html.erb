@@ -7,7 +7,7 @@
           <table class="table">
             <tbody>
               <tr>
-                    <%= @user.name %>
+                    <%= link_to @user.name, posts_path(@user) %>
                     <%= attachment_image_tag(@user, :profile_image, fallback: "no_image.jpg", class: "img-circle pull-left profile-thumb", size:'100x100') %>
                 <td><%= @user.introduction %></td>
               </tr>
@@ -16,13 +16,18 @@
         </div>
       </div>
       <div class="col-xs-9">
-        <h4>カテゴリ</h4>
+        <h3>カテゴリ</h3>
           <h4><%= @post.category %></h4>
-        <h4>タイトル</h4>
+        <h3>タイトル</h3>
           <h4><%= @post.title %></h4>
-        <h4>本文</h4>
+        <h3>本文</h3>
           <h4><%=safe_join(@post.body.split("\n"),tag(:br))%></h4>
           <%= attachment_image_tag(@post, :post_image, size: "300x300") %>
+
+          <% @post_tags.each do |tag|%>
+            <h5>タグから検索：<%= link_to tag.tag_name, tag_posts_path(tag_id: tag.id)%>
+                <%= tag.posts.count %></h5>
+          <% end %>
 
           <% if @post.user == current_user %>
             <%= link_to "編集する", edit_post_path(@post) %>
@@ -42,7 +47,6 @@
               <% end %>
           	<% end %>
           </td>
-
       </div>
     </div>
 

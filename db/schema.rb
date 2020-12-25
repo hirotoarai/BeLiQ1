@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_24_084632) do
+ActiveRecord::Schema.define(version: 2020_12_25_063746) do
 
   create_table "admins", force: :cascade do |t|
     t.string "encrypted_password", default: "", null: false
@@ -50,9 +50,25 @@ ActiveRecord::Schema.define(version: 2020_12_24_084632) do
     t.integer "user_id"
     t.string "post_image_id"
     t.string "category"
+    t.string "content"
   end
 
   create_table "searches", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tag_maps", force: :cascade do |t|
+    t.integer "post_id"
+    t.integer "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_tag_maps_on_post_id"
+    t.index ["tag_id"], name: "index_tag_maps_on_tag_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "tag_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

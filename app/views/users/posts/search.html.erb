@@ -1,7 +1,6 @@
 <body>
 <div class="container">
-  <h3>記事一覧</h3>
-  <%= render 'users/searchs/form' %>
+  <h3>タグ検索結果</h3>
   <div class="row">
     <div class="col-xs-12">
       <table class="table">
@@ -9,7 +8,7 @@
           <% @posts.each do |post| %>
   				<tr>
   				  <td>
-			          <%= link_to post.user.name, posts_path(post) %>
+			        <%= post.user.name %>
               <%= attachment_image_tag post.user, :profile_image, fallback: "no_image.jpg", class: "img-circle pull-left profile-thumb", size: "80x80" %>
 					  </td>
 
@@ -20,10 +19,6 @@
 
   					<td>
 					    投稿日:<%= post.updated_at.strftime("%Y-%m-%d") %>
-					    <div class="col-xs-1 col-xs-offset-1">
-					    <i class="glyphicon glyphicon-thumbs-up"></i>
-              <%= post.favorites.count %>
-              </div>
               <%= link_to post_path(post), class: "post_#{post.id}" do %>
               <h4><%= post.title %></h4>
               <% end %>
@@ -39,3 +34,25 @@
   </div>
 </div>
 </body>
+
+
+<!--<body>-->
+<!--  <div class="container">-->
+<!--    <h3>タグ検索結果</h3>-->
+<!--    <div class="row">-->
+<!--      <div class="col-xs-3">-->
+<!--        <table class="table">-->
+<!--          <tbody>-->
+<!--            <tr>-->
+              <%# @posts.each do |post|%>
+                <%#= link_to post.title, post %>
+              <%# end %>
+              <%#= @posts.count %>
+<!--              <td></td>-->
+<!--            </tr>-->
+<!--          </tbody>-->
+<!--        </table>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</body>-->
