@@ -23,7 +23,7 @@ Rails.application.routes.draw do
     get 'mypage' => 'users#mypage', as: 'mypage'
     resources :users, only: [:show, :create, :edit, :update, :destroy]
     resources :posts, only: [:index, :create, :show, :edit, :update, :destroy] do
-      resource :favorites, only: [:create, :destroy, :show]
+      resource :favorites, only: [:create, :destroy]
       resources :post_comments, only: [:create, :destroy, :show]
     end
   end

@@ -3,17 +3,17 @@
     <h3>投稿詳細</h3>
     <div class="row">
       <div class="col-xs-3">
-       <div class="profile">
-         <table class="table">
-           <tbody>
-             <tr>
-                 <%= @user.name %>
-                 <%= attachment_image_tag(@user, :profile_image, fallback: "no_image.jpg", class: "img-circle pull-left profile-thumb", size:'100x100') %>
-             <td><%= @user.introduction %></td>
-             </tr>
-           </tbody>
-         </table>
-       </div>
+        <div class="profile">
+          <table class="table">
+            <tbody>
+              <tr>
+                    <%= @user.name %>
+                    <%= attachment_image_tag(@user, :profile_image, fallback: "no_image.jpg", class: "img-circle pull-left profile-thumb", size:'100x100') %>
+                <td><%= @user.introduction %></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
       <div class="col-xs-9">
         <h4>カテゴリ</h4>
@@ -23,10 +23,26 @@
         <h4>本文</h4>
           <h4><%=safe_join(@post.body.split("\n"),tag(:br))%></h4>
           <%= attachment_image_tag(@post, :post_image, size: "300x300") %>
+
           <% if @post.user == current_user %>
             <%= link_to "編集する", edit_post_path(@post) %>
             <%= link_to "削除する", post_path(@post), method: :delete, data: {confirm: "削除してよろしいですか？"} %>
           <% end %>
+
+          <td class="favorite_post_<%= @post.id %>">
+            <% if @post.favorited_by?(current_user) %>
+  	          <%= link_to post_favorites_path(@post), method: :delete, remote: true do %>
+                <i class="glyphicon glyphicon-thumbs-up"></i>
+              <% end %>
+              <%= @post.favorites.count %>
+
+            <% else %>
+              <%= link_to post_favorites_path(@post), method: :post, remote: true do %>
+                <i class="glyphicon glyphicon-thumbs-up"></i>
+              <% end %>
+          	<% end %>
+          </td>
+
       </div>
     </div>
 

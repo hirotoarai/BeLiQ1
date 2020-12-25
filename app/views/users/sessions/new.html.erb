@@ -1,30 +1,38 @@
 <body>
-  <div class="container">
-    <h3>ログイン</h3>
-      <div class="row">
-          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-            <div class="field">
-              <h4></h4>
-              <%= f.text_field :name, autofocus: true, autocomplete: "name", include_blank: "名前" %>
-            </div>
-
-            <div class="field">
-              <h4></h4>
-              <%= f.password_field :password, autocomplete: "current-password", include_blank: "パスワード" %>
-            </div>
-
-            <% if devise_mapping.rememberable? %>
-              <div class="field">
-                <%= f.check_box :remember_me %>
-                <%= f.label :パスワードを保存する %>
+  <section class="slice slice-lg sct-color-1">
+    <div class="container">
+        <div class="row">
+          <div class="col-md-4 col-md-offset-4">
+            <div class="form-user style-1 rounded has-shadow-1">
+              <div class="form-header text-center">
+                  <h2 class="form-header-title">ログイン</h2>
               </div>
-            <% end %>
+              <div class="form-body">
+              <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                <div class="form-group">
+                  <%= f.text_field :name, size: "50x12", autofocus: true, autocomplete: "name", placeholder: "名前" %>
+                </div>
 
-            <div class="actions">
-              <%= f.submit "ログインする" %>
+                <form>
+                  <div class="form-group">
+                    <%= f.password_field :password, size: "50x12", autocomplete: "current-password", placeholder: "パスワード" %>
+                  </div>
+
+                  <% if devise_mapping.rememberable? %>
+                    <div class="form-group">
+                      <%= f.check_box :remember_me %>
+                      <%= f.label :パスワードを保存する %>
+                    </div>
+                  <% end %>
+
+                  <div class="actions text-center">
+                    <%= f.submit "ログインする", class:"btn btn" %>
+                  </div>
+                </form>
+              <% end %>
             </div>
-          <% end %>
-       </div>
-      </div>
-  </div>
+          </div>
+        </div>
+    </div>
+  </section>
 </body>

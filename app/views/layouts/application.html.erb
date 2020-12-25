@@ -16,7 +16,7 @@
           <div class="col-md-2 logo">
             <h1>BiLeQ</h1>
           </div>
-          <div class="col-md-8 col-md-offset-2">
+          <div class="col-md-8 col-md-offset-1">
             <div class="row">
               <ul class="nav navbar-nav navbar-right links">
                   <li><%= link_to 'top', root_path %></li>
@@ -30,8 +30,8 @@
                   <li><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %></li>
                 <% else %>
                   <li><%= link_to 'ログイン', new_user_session_path %></li>
-                  <li><%= link_to '新規登録', new_user_registration_path %></li>
-                  <div class="col-md-12"><h5>会員登録すると記事や質問を投稿できるようになります！</h5></div>
+                  <li><%= link_to '新規登録', new_user_registration_path %></li></br></br>
+                  <h5>会員登録すると投稿できるようになります！</h5></div>
                 <% end %>
               </ul>
             </div>

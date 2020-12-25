@@ -10,6 +10,7 @@ class Users::PostsController < ApplicationController
     @post_new = Post.new
     @post_comment = PostComment.new
     @user = User.find(@post.user_id)
+    @favorite = Favorite.new
     #@post_new = Post.new
     #@user = current_user
   end
