@@ -2,6 +2,8 @@ class Users::PostsController < ApplicationController
   before_action :authenticate_user!, only: [:edit]
 
   def index
+    #binding.pry
+    @user = current_user
     @posts = current_user.posts.all.page(params[:page]).per(10)
   end
 

@@ -6,7 +6,7 @@
          <div class="profile">
            <table class="table">
              <%# if admin_signed_in? && request.path.include?("admin") %>
-              	<tr><%= attachment_image_tag current_user, :profile_image, fallback: "no_image.jpg", class: "img-circle pull-left profile-thumb", size: "100x100" %></tr>
+              	<tr><%= attachment_image_tag @user, :profile_image, fallback: "no_image.jpg", class: "img-circle pull-left profile-thumb", size: "100x100" %></tr>
 
               	<tr>
               		<th>名前</th>

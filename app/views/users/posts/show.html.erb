@@ -7,7 +7,7 @@
           <table class="table">
             <tbody>
               <tr>
-                    <%= link_to @user.name, posts_path(@user) %>
+                    <%= link_to @user.name, root_path %>
                     <%= attachment_image_tag(@user, :profile_image, fallback: "no_image.jpg", class: "img-circle pull-left profile-thumb", size:'100x100') %>
                 <td><%= @user.introduction %></td>
               </tr>
@@ -35,17 +35,7 @@
           <% end %>
 
           <td class="favorite_post_<%= @post.id %>">
-            <% if @post.favorited_by?(current_user) %>
-  	          <%= link_to post_favorites_path(@post), method: :delete, remote: true do %>
-                <i class="glyphicon glyphicon-thumbs-up"></i>
-              <% end %>
-              <%= @post.favorites.count %>
-
-            <% else %>
-              <%= link_to post_favorites_path(@post), method: :post, remote: true do %>
-                <i class="glyphicon glyphicon-thumbs-up"></i>
-              <% end %>
-          	<% end %>
+            <%= render 'users/favorites/favorites', post: @post %>
           </td>
       </div>
     </div>
@@ -62,7 +52,7 @@
 					<%= f.text_area :content, rows:'5', class: "form-control comment_form",placeholder: "コメントをここに記入する" %>
 				</div>
  			 </div>
-			<%= f.submit "コメントする" %>
+			<%= f.submit "コメントする", class: 'btn btn-default btn-sm' %>
 		<% end %>
   </div>
 </body>

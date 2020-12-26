@@ -3,5 +3,7 @@ class Admins::CustomersController < ApplicationController
 
   def index
     @users = User.all.page(params[:page]).per(10)
+    @all_ranks = Post.find(Favorite.group(:post_id).order('count(post_id) desc').limit(3).pluck(:post_id))
+    @post = Post.all
   end
 end

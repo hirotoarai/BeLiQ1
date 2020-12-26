@@ -27,7 +27,9 @@
                   <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li></br>
                   <li id="user-name">ようこそ、<%= current_user.name %>さん！</li>
                 <% elsif admin_signed_in? %>
-                  <li><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %></li>
+                  <li><%= link_to '会員一覧', admins_top_path %></li>
+                  <li><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %></li></br>
+                  <li id="user-name">管理者：<%= current_admin.name %>さんでログイン中</li>
                 <% else %>
                   <li><%= link_to 'ログイン', new_user_session_path %></li>
                   <li><%= link_to '新規登録', new_user_registration_path %></li></br></br>
