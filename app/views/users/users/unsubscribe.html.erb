@@ -1,8 +1,9 @@
 <body>
   <div class="container">
-    <h4>退会ページ</h4>
     <div class="row">
       <div class="text-center col-xs-12">
+        <h4>退会すると投稿ができなくなります。</h4>
+        <h4>本当に退会しますか？</h4>
         <% if @user == current_user %>
   		    <h4><%= link_to "退会する", withdraw_user_path(@user), method: :patch %></h4></br>
   		    <h4><%= link_to "マイページに戻る", mypage_path(@user) %></h4>

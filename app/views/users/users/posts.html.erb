@@ -1,43 +1,43 @@
 <body>
-<div class="container">
-  <h3>記事一覧</h3>
-  <%= render 'users/searchs/form' %>
-  <div class="row">
-    <div class="col-xs-12">
-      <h4><%= @posts.first.user.name %></h4>
-      <% @posts.each do |post| %>
-      <table class="table">
-        <tbody>
+  <div class="container">
+    <h3><%= @posts.first.user.name %>さんの投稿一覧</h3>
+    <%= render 'users/searchs/form' %>
+    <div class="row">
+      <div class="col-xs-12">
+        <table class="table">
+          <tbody>
 
-  				<tr>
-  				  <td>
+            <% @posts.each do |post| %>
+    				<tr>
+    				  <td>
 
-              <%= attachment_image_tag post.user, :profile_image, fallback: "no_image.jpg", class: "img-circle pull-left profile-thumb", size: "80x80" %>
-					  </td>
+                <%= attachment_image_tag post.user, :profile_image, fallback: "no_image.jpg", class: "img-circle pull-left profile-thumb", size: "80x80" %>
+  					  </td>
 
-					  <td>
-					    </br>
-					    <h4><%= post.category %></h4>
-					  </td>
+  					  <td>
+  					    </br>
+  					    <h4><%= post.category %></h4>
+  					  </td>
 
-  					<td>
-					    投稿日:<%= post.updated_at.strftime("%Y-%m-%d") %>
-					    <div class="col-xs-1 col-xs-offset-1">
-					    <i class="glyphicon glyphicon-thumbs-up"></i>
-              <%= post.favorites.count %>
-              </div>
-              <%= link_to post_path(post), class: "post_#{post.id}" do %>
-              <h4><%= post.title %></h4>
-              <% end %>
-            </td>
-          </tr>
-          <% end %>
-        </tbody>
-      </table>
-      <!--<div class="text-center">-->
-      <!--  <h4><%#= paginate @posts %></h4>-->
-      <!--</div>-->
+    					<td>
+  					    投稿日:<%= post.updated_at.strftime("%Y-%m-%d") %>
+  					    <div class="col-xs-1 col-xs-offset-1">
+  					      <i class="glyphicon glyphicon-thumbs-up"></i>
+                  <%= post.favorites.count %>
+                </div>
+                <%= link_to post_path(post), class: "post_#{post.id}" do %>
+                <h4><%= post.title %></h4>
+                <% end %>
+              </td>
+            </tr>
+            <% end %>
+
+          </tbody>
+        </table>
+        <div class="text-center">
+          <h4><%= paginate @posts %></h4>
+        </div>
+      </div>
     </div>
   </div>
-</div>
 </body>

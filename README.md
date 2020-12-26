@@ -1,24 +1,44 @@
-# README
+# BiLeQ
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+  世の中の建築設備系技術者が技術的な疑問を検索しinputしたり、
+  自分の保持している知見を投稿し、outputすることを目的としているサイトです。
+　技術的な知見の投稿に関しては、企業の情報漏洩対策のため、匿名性ありでの投稿とし、
+　所属している会社が本サイトに登録することを許可している場合のみ登録可能であることをサイト内に明示する。
 
-Things you may want to cover:
+### サイトテーマ
+  全国の建築設備系技術者が自ら訪れたいと思うサイト
 
-* Ruby version
+### テーマを選んだ理由
+  私の前職は建築設備の設計者です。大学では建築学科で設備系を専攻して勉強しておりました。
+  しかし、実務に関わる部分については会社に就職して一から勉強していかなければなりません。
+  意味のわからない単語が業務中に出てきても、専門性が高い職種のため、ネットや書籍で調べますが、出てこないことが多々あります。
+  私は前職に従事している際に、建築設備系の技術者のための専用サイトがあれば良いなと日常的に思っておりました。
+  今回、全国の設備系技術者のためのサイトを制作することにより、その時の思いを実現させるためにこのテーマを選びました。
+  また、昨今日本の設備系技術者は、団塊の世代定年や若手社員の離職率の増加に伴い、就業人口が年々減少し、将来的に人手不足になることが懸念されています。
+  この事実から業界全体で情報を共有しようとの設備学会の動向も見受けられますので、本サイトがその足がかりになれば良いなと考えております。
 
-* System dependencies
+### ターゲットユーザ
+- ２０代〜３０代の新人、若手設備系技術者（input,output）
+- ４０代〜５０代の中堅、ベテラン設備系技術者(output)
+- 設備系業界に就職したい就活生、転職希望者(input)
 
-* Configuration
+### 主な利用シーン
+- 技術力の乏しい若手設備系技術者、学生、転職希望者が自分の建築設備に対する知識を深めるためにサイトを利用する。
+- 実務経験が豊富な設備系技術者上位層の方が若手世代の技術向上のために、自分の知見や業務上の経験を投稿するためにサイトを利用する。
 
-* Database creation
+## 設計書
+- ワイヤーフレーム
 
-* Database initialization
+### 機能一覧
+<https://docs.google.com/spreadsheets/d/1bsWxvZbhAWCFiFj2fYkeyzCAmDIpA7qWdW0VnjXdpIs/edit#gid=0>
 
-* How to run the test suite
+## 開発環境
+- OS：Catalina
+- 言語：HTML,CSS,Ruby
+- フレームワーク：Ruby on Rails
+- IDE：Cloud9
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 使用素材
+- ぱくたそ　URL:https://www.pakutaso.com（画像を使用予定）
+- O-DAN　URL:https://o-dan.net/ja/（画像を使用予定）
