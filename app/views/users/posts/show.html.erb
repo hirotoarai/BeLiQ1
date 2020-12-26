@@ -34,8 +34,10 @@
             <%= link_to "削除する", post_path(@post), method: :delete, data: {confirm: "削除してよろしいですか？"} %>
           <% end %>
 
+          <% if user_signed_in? %>
           <td class="favorite_post_<%= @post.id %>">
             <%= render 'users/favorites/favorites', post: @post %>
+          <% end %>
           </td>
       </div>
     </div>
