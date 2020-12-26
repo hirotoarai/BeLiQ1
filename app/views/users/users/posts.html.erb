@@ -4,12 +4,14 @@
   <%= render 'users/searchs/form' %>
   <div class="row">
     <div class="col-xs-12">
+      <h4><%= @posts.first.user.name %></h4>
+      <% @posts.each do |post| %>
       <table class="table">
         <tbody>
-          <% @posts.each do |post| %>
+
   				<tr>
   				  <td>
-			        <%= link_to post.user.name, user_posts_path(post.user_id) %>
+
               <%= attachment_image_tag post.user, :profile_image, fallback: "no_image.jpg", class: "img-circle pull-left profile-thumb", size: "80x80" %>
 					  </td>
 
@@ -32,9 +34,9 @@
           <% end %>
         </tbody>
       </table>
-      <div class="text-center">
-        <h4><%= paginate @posts %></h4>
-      </div>
+      <!--<div class="text-center">-->
+      <!--  <h4><%#= paginate @posts %></h4>-->
+      <!--</div>-->
     </div>
   </div>
 </div>

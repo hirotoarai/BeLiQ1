@@ -23,8 +23,9 @@ class Users::UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
-    if @user == current_user
-      redirect_to edit_user_path
+    #if @user != current_user && @user != current_admin
+    if !(current_user.try(:id) == params[:id] || admin_signed_in?)
+      redirect_to root_path
     end
   end
 
@@ -47,6 +48,10 @@ class Users::UsersController < ApplicationController
     @user.update(is_valid: false)
     reset_session
     redirect_to root_path
+  end
+
+  def posts
+    @posts = Post.where(user_id: params[:id])
   end
 
   private

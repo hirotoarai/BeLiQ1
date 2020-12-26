@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     get 'users/search' => 'searchs#search', as: 'search'
     patch 'users/:id/withdraw' => 'users#withdraw', as: 'withdraw_user'
     get 'mypage' => 'users#mypage', as: 'mypage'
+    get 'users/:id/posts' => 'users#posts', as: 'user_posts'
     resources :users, only: [:show, :create, :edit, :update, :destroy]
     resources :posts, only: [:index, :create, :show, :edit, :update, :destroy] do
       resource :favorites, only: [:create, :destroy]
