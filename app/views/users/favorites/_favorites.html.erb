@@ -7,4 +7,5 @@
   <%= link_to post_favorites_path(post), method: :post, remote: true do %>
     <i class="glyphicon glyphicon-thumbs-up"></i>
   <% end %>
+  <%= post.favorites.count %>
 <% end %>

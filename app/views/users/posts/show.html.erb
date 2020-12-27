@@ -10,6 +10,19 @@
                     <%= link_to @user.name, user_posts_path(@user) %>
                     <%= attachment_image_tag(@user, :profile_image, fallback: "no_image.jpg", class: "img-circle pull-left profile-thumb", size:'100x100') %>
                 <td><%= @user.introduction %></td>
+                <% if user_signed_in? && @user != current_user %>
+                  <td><div id="follow_form">
+                    <% if current_user.following?(@user) %>
+                      <%= render 'unfollow' %>
+                    <% else %>
+                      <%= render 'follow' %>
+                    <% end %></td>
+                  </div>
+                <% end %>
+              </tr>
+
+              <tr>
+                <td id="followers_count">フォロワー数：<%= @user.followers.count %></td>
               </tr>
             </tbody>
           </table>

@@ -58,6 +58,18 @@ class Users::PostsController < ApplicationController
     #binding.pry
   end
 
+  def followings
+    @user = User.find(params[:id])
+    #@users = User.followings.page(params[:page]).per(5)
+    render 'show_followings'
+  end
+
+  def followers
+    @user = User.find(params[:id])
+    #@users = User.followers.page(params[:page]).per(5)
+    render 'show_followers'
+  end
+
   private
   def post_params
     params.require(:post).permit(:title, :body, :post_image, :category)
