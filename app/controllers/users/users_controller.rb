@@ -50,6 +50,7 @@ class Users::UsersController < ApplicationController
 
   def posts
     @posts = Post.where(user_id: params[:id])
+    @post = Post.all.page(params[:page]).per(10)
   end
 
   private

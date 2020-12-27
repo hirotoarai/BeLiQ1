@@ -8,15 +8,10 @@
           	<tbody>
           		<% @users.each do |user| %>
           		<tr>
-          			<td><%= attachment_image_tag user, :profile_image, fallback: "no_image.jpg", class: "img-circle pull-left profile-thumb", size:'80x80' %></td>
-          			<td><%= link_to user.name, user_path(user) %></td>
-
+          			<td><%= attachment_image_tag user, :profile_image, fallback: "no_image.jpg", class: "img-circle pull-left profile-thumb", size:'80x80' %>
+          			    <%= link_to user.name, user_path(user) %></td>
 
     					   <td>最終投稿日:<%= user.updated_at.strftime("%Y-%m-%d") %></td>
-    					   <td>
-    					    <i class="glyphicon glyphicon-thumbs-up"></i>
-                  <%= user.favorites.count %>
-                　</td>
 
           		</tr>
           		<% end %>
@@ -31,12 +26,24 @@
   </div>
 
   <div class="container">
-    <h3>記事　いいね数ランキング</h3>
-  <% @all_ranks.each.with_index(1) do |post, i| %>
-      <h4>第
-    <%= i %>
-      位
-    <%= link_to post.title, post_path(post) %><h4>
-  <% end %>
+    <table class="table">
+      <tbody>
+        <h3>記事　いいね数ランキング</h3>
+      <% @all_ranks.each.with_index(1) do |post, i| %>
+        <tr>
+          <td><h4>第
+          <%= i %>
+            位
+          <%= link_to post.title, post_path(post) %><h4></td>
+
+          <td>投稿日:<%= post.updated_at.strftime("%Y-%m-%d") %></td>
+		      <td>
+		        <i class="glyphicon glyphicon-thumbs-up"></i>
+            <%= post.favorites.count %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
   </div>
 </body>
