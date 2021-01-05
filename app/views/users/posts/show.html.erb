@@ -29,12 +29,20 @@
         </div>
       </div>
       <div class="col-xs-9">
+        <div class="col-md-offset-5">
+          <% if user_signed_in? %>
+          <td class="favorite_post_<%= @post.id %>">
+            <%= render 'users/favorites/favorites', post: @post %>
+          <% end %>
+          </td>
+          投稿日:<%= @post.updated_at.strftime("%Y-%m-%d") %>
+        </div>
         <h3>カテゴリ</h3>
           <h4><%= @post.category %></h4>
         <h3>タイトル</h3>
           <h4><%= @post.title %></h4>
         <h3>本文</h3>
-          <h4><%=safe_join(@post.body.split("\n"),tag(:br))%></h4>
+          <h4><%= safe_join(@post.body.split("\n"),tag(:br)) %></h4>
           <%= attachment_image_tag(@post, :post_image, size: "300x300") %>
 
           <% @post_tags.each do |tag|%>
@@ -46,19 +54,17 @@
             <%= link_to "編集する", edit_post_path(@post) %>
             <%= link_to "削除する", post_path(@post), method: :delete, data: {confirm: "削除してよろしいですか？"} %>
           <% end %>
-
-          <% if user_signed_in? %>
-          <td class="favorite_post_<%= @post.id %>">
-            <%= render 'users/favorites/favorites', post: @post %>
-          <% end %>
-          </td>
       </div>
     </div>
 
     <div class="row">
-      <table class="content_post_<%= @post.id %>">
+      <div class="col-xs-3">
+      </div>
+      <div class="col-xs-9">
+      <table class="table table-bordered_<%= @post.id %>">
         <%= render 'users/post_comments/post_comments', post: @post %>
       </table>
+      </div>
     </div>
 
     <%= form_with(model:[@post, @post_comment]) do |f| %>

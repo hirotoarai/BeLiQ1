@@ -10,12 +10,12 @@
             <div class="form-body">
               <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
                 <div class="form-group">
-                  <%= f.text_field :name, size: "50x12", autofocus: true, autocomplete: "name", placeholder: "名前" %>
+                  <%= f.text_field :name, size: "50x12", autofocus: true, autocomplete: "name", placeholder: "名前", class: "form-control" %>
                 </div>
 
                 <form>
                   <div class="form-group">
-                    <%= f.password_field :password, size: "50x12", autocomplete: "current-password", placeholder: "パスワード" %>
+                    <%= f.password_field :password, size: "50x12", autocomplete: "current-password", placeholder: "パスワード", class: "form-control" %>
                   </div>
 
                   <% if devise_mapping.rememberable? %>

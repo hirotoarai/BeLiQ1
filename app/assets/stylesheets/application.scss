@@ -83,6 +83,17 @@ footer {
   bottom: 0; /*下に固定*/
 }
 
+.pagination a {
+  background-color: rgba(255, 255, 255, 0.7);
+  // text-decoration: none;
+}
+
+.pagination * {
+  // text-decoration: none;
+  padding: 12px;
+  // border-radius: 25px;
+}
+
 // .font-center{
 //   line-height: 100px;
 //   text-align: center;
