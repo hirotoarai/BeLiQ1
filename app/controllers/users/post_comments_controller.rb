@@ -3,10 +3,14 @@ class Users::PostCommentsController < ApplicationController
   def create
     @post = Post.find(params[:post_id])
     @post_comment = PostComment.new
+    @user = current_user
+    @post_tags = @post.tags
     comment = current_user.post_comments.new(post_comment_params)
     comment.post_id = @post.id
-    if comment.save!
+    if comment.save
        redirect_back(fallback_location: post_post_comments_path)
+    else
+       redirect_to post_path(@post), notice: 'コメントは３００文字以内で投稿できます。'
     end
   end
 

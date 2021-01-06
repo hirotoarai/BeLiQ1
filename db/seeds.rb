@@ -11,7 +11,57 @@
   password: "korokoro"
   )
 
-  User.create!(
+  User.create!([{
   name: "test1",
   password: "testtest"
-  )
+  },
+
+  {
+  name: "ah1",
+  password: "ah940325"
+  },
+
+  {
+  name: "ah2",
+  password: "ah9403252"
+  },
+
+  {
+  name: "ah3",
+  password: "ah9403253"
+  },
+
+  {
+  name: "ah4",
+  password: "ah9403254"
+  },
+
+  {
+  name: "ah5",
+  password: "ah9403255"
+  },
+
+  {
+  name: "ah6",
+  password: "ah9403256"
+  },
+
+  {
+  name: "ah7",
+  password: "ah9403257"
+  },
+
+  {
+  name: "ah8",
+  password: "ah9403258"
+  },
+
+  {
+  name: "ah9",
+  password: "ah9403259"
+  },
+
+  {
+  name: "ah10",
+  password: "ah94032510"
+  }])

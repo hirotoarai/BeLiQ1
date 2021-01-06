@@ -20,7 +20,7 @@
 
               	<tr>
               	  <%# if @user == current_user %>
-              		<th><%= link_to "プロフィールを編集する", edit_user_path(@user) %></th>
+              		<th><%= link_to "プロフィールを編集する", edit_user_path(@user), data: {"turbolinks" => false} %></th>
               	  <%# end %>
               	</tr>
 
@@ -33,6 +33,9 @@
       </div>
 
       <div class="col-xs-9">
+        <% if flash[:notice] %>
+          <p class="notice"><%= notice %></p>
+        <% end %>
         <%= form_with model: @post_new, local: true do |f| %>
           <h4></h4>
             <%= f.select :category, [["質問", "質問"], ["投稿", "投稿"]], include_blank: "カテゴリを選択して下さい" %>

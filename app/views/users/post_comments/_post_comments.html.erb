@@ -7,7 +7,7 @@
 
     <td>
       <div class="col-xs-9">
-        <div class="col-md-offset-7">
+        <div class="col-md-offset-6">
             投稿日:<%= post_comment.updated_at.strftime("%Y-%m-%d") %>
         </div>
         <h4><%= safe_join(post_comment.content.split("\n"),tag(:br)) %></h4>

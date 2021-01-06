@@ -14,6 +14,10 @@ class User < ApplicationRecord
 
   attachment :profile_image, destroy: false
 
+  validates :name, uniqueness: true, length: { maximum: 20, minimum: 2 }
+  validates :introduction, length: { maximum: 50 }
+  validates :encrypted_password,    length: { minimum: 8 }
+
   def following?(other_user)
     self.followings.include?(other_user)
   end

@@ -27,6 +27,9 @@ class Users::PostsController < ApplicationController
     if @post.save
       @post.save_tag(tag_list)
       redirect_to posts_path
+    else
+      flash[:notice] = 'タイトルは４０字以内、本文は１,０００文字以内です。'
+      redirect_to mypage_path
     end
   end
 
