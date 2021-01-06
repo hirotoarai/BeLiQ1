@@ -65,7 +65,9 @@
       </div>
       <div class="col-xs-9">
       <table class="table table-bordered_<%= @post.id %>">
-        <%= render 'users/post_comments/post_comments', post: @post %>
+        <tbody>
+          <%= render 'users/post_comments/post_comments', post: @post %>
+        </tbody>
       </table>
       </div>
     </div>
