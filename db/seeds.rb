@@ -12,56 +12,99 @@
   )
 
   User.create!([{
-  name: "test1",
-  password: "testtest"
+  name: "ah",
+  introduction: "プログラミング勉強中",
+  password: "ah940325",
+  profile_image: File.open("./app/assets/images/どくろ.jpg"),
   },
 
   {
-  name: "ah1",
-  password: "ah940325"
+  name: "アシンメトリー",
+  introduction: "新社会人です。",
+  password: "ashinmetori",
+  profile_image: File.open("./app/assets/images/アシンメトリー.jpg"),
   },
 
   {
-  name: "ah2",
-  password: "ah9403252"
+  name: "インド人です",
+  introduction: "インド出身２６歳。",
+  password: "indojindes",
+  profile_image: File.open("./app/assets/images/インドの富豪.jpg"),
   },
 
   {
-  name: "ah3",
-  password: "ah9403253"
+  name: "コメント好き",
+  introduction: "コメント好きです。",
+  password: "komentzuki",
+  profile_image: File.open("./app/assets/images/コメント好き.jpg"),
   },
 
   {
-  name: "ah4",
-  password: "ah9403254"
+  name: "スパイです",
+  introduction: "某国から某国へ",
+  password: "supaides",
+  profile_image: File.open("./app/assets/images/スパイ.jpg"),
   },
 
   {
-  name: "ah5",
-  password: "ah9403255"
+  name: "警察官",
+  introduction: "生涯現役",
+  password: "keisatukan",
+  profile_image: File.open("./app/assets/images/警察官.jpg"),
   },
 
   {
-  name: "ah6",
-  password: "ah9403256"
+  name: "警備員です",
+  introduction: "在宅勤務中",
+  password: "keibiindes",
+  profile_image: File.open("./app/assets/images/警備員.jpg"),
   },
 
   {
-  name: "ah7",
-  password: "ah9403257"
+  name: "好青年",
+  introduction: "好青年とよく言われます",
+  password: "kouseinen",
+  profile_image: File.open("./app/assets/images/好青年.jpg"),
   },
 
   {
-  name: "ah8",
-  password: "ah9403258"
+  name: "歯科助手",
+  introduction: "歯科助手です",
+  password: "shikajosyu",
+  profile_image: File.open("./app/assets/images/歯科助手.jpg"),
   },
 
   {
-  name: "ah9",
-  password: "ah9403259"
+  name: "社長令嬢",
+  introduction: "実家がお金持ち",
+  password: "syatyoureijou",
+  profile_image: File.open("./app/assets/images/社長令嬢.jpg"),
   },
 
   {
-  name: "ah10",
-  password: "ah94032510"
+  name: "女子高２年",
+  introduction: "jk2",
+  password: "joshikouninen",
+  profile_image: File.open("./app/assets/images/女子高２年.jpg"),
+  },
+
+  {
+  name: "占い師",
+  introduction: "今年大殺界突入！！",
+  password: "uranaishi",
+  profile_image: File.open("./app/assets/images/占い師.jpg"),
+  },
+
+  {
+  name: "正岡子規",
+  introduction: "正岡子規と申します",
+  password: "masaokashiki",
+  profile_image: File.open("./app/assets/images/正岡子規.jpeg"),
+  },
+
+  {
+  name: "入院中",
+  # introduction: "骨折しました。",
+  password: "nyuuintyuu",
+  profile_image: File.open("./app/assets/images/入院中.jpg"),
   }])
