@@ -49,6 +49,19 @@ h1 {
   font-size: 50px;
 }
 
+h3 {
+  background-color: rgba(255, 255, 224, 0.6);
+  display: inline-block;
+  padding: 7px;
+  border-radius: 25px;
+}
+
+h7 {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 7px;
+  border-radius: 25px;
+}
+
 .row {
   margin-bottom: 10px;
   margin-top: 10px;
@@ -81,27 +94,17 @@ tr {
 }
 
 .wrapper{
-    min-height: 100vh;
-    position: relative;/*←相対位置*/
+  min-height: 100vh;
+  position: relative;/*相対位置*/
 }
 
 input[type="submit"] {
-    // 幅と高さを指定
-    width: 120px;
-    height: 35px;
-}
-
-// input[type="text"] {
-//     width: 720px;
-//     height: 30px;
-// }
-
-.ul {
-    width: 100px;
+  width: 110px;
+  height: 35px;
 }
 
 select {
-    font-size: 18px
+  font-size: 18px
 }
 
 footer {
@@ -119,8 +122,8 @@ footer {
 
 .pagination * {
   // text-decoration: none;
-  padding: 12px;
-  // border-radius: 25px;
+  padding: 18px;
+  border-radius: 25px;
 }
 
 // .font-center{

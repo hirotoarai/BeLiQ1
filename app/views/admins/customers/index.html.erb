@@ -13,6 +13,13 @@
 
     					   <td>最終投稿日:<%= user.updated_at.strftime("%Y-%m-%d") %></td>
 
+    					   <td>
+      					   <% if user.is_valid == TRUE %>
+    				         <p class=""><%= '有効会員' %></p>
+    			         <% else %>
+    				         <p class="notice"><%= '退会済' %></p>
+    			         <% end %>
+                 </td>
           		</tr>
           		<% end %>
           	</tbody>

@@ -9,7 +9,7 @@ class Users::PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    #binding.pry
+    #投稿に関連するタグの取得
     @post_tags = @post.tags
     @post_new = Post.new
     @post_comment = PostComment.new
@@ -36,6 +36,7 @@ class Users::PostsController < ApplicationController
   def edit
     @post = Post.find(params[:id])
     @user = User.find(@post.user_id)
+    #投稿したユーザーがカレントユーザーでなかった時
     if @post.user != current_user
       redirect_to posts_path
     end
@@ -55,7 +56,6 @@ class Users::PostsController < ApplicationController
   end
 
   def search
-    #@tag_list = Tag.all
     @tag = Tag.find(params[:tag_id])
     @posts = @tag.posts.page(params[:page]).per(10)
     #binding.pry
@@ -63,13 +63,11 @@ class Users::PostsController < ApplicationController
 
   def followings
     @user = User.find(params[:id])
-    #@users = User.followings.page(params[:page]).per(5)
     render 'show_followings'
   end
 
   def followers
     @user = User.find(params[:id])
-    #@users = User.followers.page(params[:page]).per(5)
     render 'show_followers'
   end
 

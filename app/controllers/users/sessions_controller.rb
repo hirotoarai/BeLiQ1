@@ -5,6 +5,7 @@ class Users::SessionsController < Devise::SessionsController
   before_action :authenticate_user!
   before_action :reject_inactive_user, only: [:create]
 
+  #退会した会員が再度ログインしようとした際に拒否する
   def reject_inactive_user
     @user = User.find_by(name: params[:user][:name])
     if @user

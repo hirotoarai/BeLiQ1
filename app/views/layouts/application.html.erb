@@ -18,18 +18,18 @@
           </div>
           <div class="col-md-8 col-md-offset-1">
             <div class="row">
-              <ul class="nav navbar-nav navbar-right links">
+              <ul class="nav navbar-nav navbar-right">
                   <li><%= link_to 'top', root_path %></li>
                   <li><%= link_to 'about', about_path %></li>
                 <% if user_signed_in? %>
                   <li><%= link_to 'マイページ', mypage_path %></li>
                   <li><%= link_to '投稿一覧', posts_path %></li>
                   <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li></br>
-                  <li id="user-name">ようこそ、<%= current_user.name %>さん！</li>
+                  <li>ようこそ、<%= current_user.name %>さん！</li>
                 <% elsif admin_signed_in? %>
                   <li><%= link_to '会員一覧', admins_top_path %></li>
                   <li><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %></li></br>
-                  <li id="user-name">管理者：<%= current_admin.name %>さんでログイン中</li>
+                  <li>管理者：<%= current_admin.name %>さんでログイン中</li>
                 <% else %>
                   <li><%= link_to 'ログイン', new_user_session_path %></li>
                   <li><%= link_to '新規登録', new_user_registration_path %></li></br></br>

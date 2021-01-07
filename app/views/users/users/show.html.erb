@@ -9,18 +9,20 @@
               	<tr><%= attachment_image_tag @user, :profile_image, fallback: "no_image.jpg", class: "img-circle pull-left profile-thumb", size: "100x100" %></tr>
 
               	<tr>
-              		<th>名前</th>
-              		<th><%= @user.name %></th>
+              		<th>
+              		  名前:<%= @user.name %>
+              		</th>
               	</tr>
 
               	<tr>
-              		<th>紹介文</th>
-              		<th><%= @user.introduction %></th>
+              		<th>
+              		  紹介文:<%= @user.introduction %>
+              		</th>
               	</tr>
 
               	<tr>
               	  <%# if @user == current_user %>
-              		<th><%= link_to "プロフィールを編集する", edit_user_path(@user) %></th>
+              		<th><%= link_to "プロフィールを編集する", edit_user_path(@user), data: {"turbolinks" => false} %></th>
               	  <%# end %>
               	</tr>
 
@@ -32,16 +34,23 @@
          </div>
       </div>
 
-      <div class="col-9">
-        <%= form_with model: @post_new do |f| %>
-          <h4></h4>
+      <div class="col-xs-8">
+        <%= form_with model: @post_new, local: true do |f| %>
+          <div class="form-group">
             <%= f.select :category, [["質問", "質問"], ["投稿", "投稿"]], include_blank: "カテゴリを選択して下さい" %>
-          <h4></h4>
-            <%= f.text_field :title, size: "100x12",placeholder: "タイトル" %>
-          <h4></h4>
-            <%= f.text_area :body, size: "100x12",placeholder: "投稿をここに記入する" %>
+          </div>
+          <div class="form-group">
+            <%= f.text_field :title, placeholder: "タイトル", class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.text_area :body, size: "100x12", placeholder: "内容をここに記入する", class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.text_field :tag_name, placeholder: "タグを追加", class: "form-control" %>
+          </div>
           <h4>画像投稿フォーム</h4>
             <%= f.attachment_field :post_image %>
+          <h4></h4>
             <%= f.submit '投稿する' %>
         <% end %>
       </div>
