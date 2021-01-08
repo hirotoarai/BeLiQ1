@@ -40,17 +40,17 @@
   },
 
   {
-  name: "シャーロックホームズ",
+  name: "名探偵",
   introduction: "職業は探偵です。",
-  password: "syarokkuhomuzu",
-  profile_image: File.open("./app/assets/images/シャーロックホームズ.jpg"),
+  password: "meitantei",
+  profile_image: File.open("./app/assets/images/名探偵.jpg"),
   },
 
   {
-  name: "ポニーテール好き",
+  name: "テニス選手",
   introduction: "ポニテ好き",
-  password: "poniteru",
-  profile_image: File.open("./app/assets/images/ポニーテール好き.jpg"),
+  password: "tenisusensyu",
+  profile_image: File.open("./app/assets/images/テニス選手.jpg"),
   },
 
   {
@@ -178,3 +178,11 @@
   password: "nyuuintyuu",
   profile_image: File.open("./app/assets/images/入院中.jpg"),
   }])
+
+  User.all.each do |user|
+    user.posts.create!(
+    category: '質問',
+    title: '投稿タイトルのテスト投稿タイトルのテスト',
+    body: '投稿本文のテスト投稿本文のテスト',
+    )
+  end
