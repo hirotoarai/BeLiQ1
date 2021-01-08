@@ -6,4 +6,10 @@ class Admins::CustomersController < ApplicationController
     @all_ranks = Post.find(Favorite.group(:post_id).order('count(post_id) desc').limit(3).pluck(:post_id))
     #@post = Post.where(:post_id )
   end
+
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    redirect_to admins_top_path
+  end
 end

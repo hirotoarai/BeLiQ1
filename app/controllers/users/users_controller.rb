@@ -8,13 +8,13 @@ class Users::UsersController < ApplicationController
 
   def mypage
     @post_new = Post.new
-    @posts = Post.all.page(params[:page]).per(10)
+    # @posts = Post.all.page(params[:page]).per(10)
     @user = current_user
   end
 
   def edit
     @user = User.find(params[:id])
-    #ユーザーがカレントユーザーもしくは管理者出なかった場合
+    #ユーザーがカレントユーザーもしくは管理者ではなかった場合、トップ画面に戻す
     if !(current_user || admin_signed_in?)
       redirect_to root_path
     end

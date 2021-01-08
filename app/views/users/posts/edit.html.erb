@@ -9,7 +9,7 @@
             <tbody>
               <tr>
                 <%= @user.name %>
-                <%= attachment_image_tag(@user, :profile_image, fallback: "no_image.jpg", class: "img-circle pull-left profile-thumb", size:'100x100') %>
+                <%= attachment_image_tag(@user, :profile_image, fallback: "no_image.jpg", class: "img-circle pull-left profile-thumb", size:'100x100', id:"profile_image") %>
                 <td>・<%= @user.introduction %></td>
               </tr>
             </tbody>
@@ -28,7 +28,7 @@
             <%= f.text_area :body, size: "100x12", placeholder: "内容をここに記入する", class: "form-control" %>
           </div>
           <div class="form-group">
-            <%= f.text_field :tag_name, placeholder: "タグを追加", class: "form-control" %>
+            <%= f.text_field :tag_name,value: @tag_list, placeholder: "タグを追加", class: "form-control" %>
           </div>
           <h4>画像投稿フォーム</h4>
             <%= f.attachment_field :post_image %>

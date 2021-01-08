@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   namespace :admins do
     get 'top' => 'customers#index'
+    resources :customers, only: [:destroy]
   end
 
   devise_for :users, controllers: {

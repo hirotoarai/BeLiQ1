@@ -2,24 +2,24 @@
   <div class="container">
     <h3>ユーザー編集</h3>
     <div class="row">
-      <div class="col-xs-3">
+      <div class="col-xs-5 col-xs-offset-3">
          <div class="profile">
            <table class="table">
           	<tr>
-          	  <%= attachment_image_tag current_user, :profile_image, fallback: "no_image.jpg", class: "img-circle pull-left profile-thumb", size: "100x100" %>
+          	  <%= attachment_image_tag current_user, :profile_image, fallback: "no_image.jpg", class: "img-circle pull-left profile-thumb", size: "150x150" %>
           	</tr>
 　　　　　　<tr>
           	<%= form_with model: @user do |f| %>
-              <div class="field">
+              <div class="form-group">
             		<%= f.attachment_field :profile_image %>
             	</div>
 
-            	<div class="field">
-            		<%= f.text_field :name, class: "name",placeholder: "名前" %>
+            	<div class="form-group">
+            		<%= f.text_field :name, class: "name",placeholder: "名前", class: "form-control" %>
             	</div>
 
-            	<div class="field">
-            		<%= f.text_area :introduction, class: "introduction",placeholder: "紹介文" %>
+            	<div class="form-group">
+            		<%= f.text_area :introduction, size: "100x10", class: "introduction",placeholder: "紹介文", class: "form-control" %>
             	</div>
 
             	<div class="actions">

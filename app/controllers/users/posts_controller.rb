@@ -13,6 +13,7 @@ class Users::PostsController < ApplicationController
     @post_tags = @post.tags
     @post_new = Post.new
     @post_comment = PostComment.new
+    @post_comments = @post.post_comments.page(params[:page]).per(5)
     @user = User.find(@post.user_id)
     #@user_name = User.name
     @favorite = Favorite.new
@@ -35,6 +36,7 @@ class Users::PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
+    @tag_list = @post.tags.pluck(:tag_name).join(" ")
     @user = User.find(@post.user_id)
     #投稿したユーザーがカレントユーザーでなかった時
     if @post.user != current_user
@@ -44,7 +46,9 @@ class Users::PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
+    tag_list = params[:post][:tag_name].split(nil)
     if @post.update(post_params)
+      @post.save_tag(tag_list)
       redirect_to posts_path
     end
   end

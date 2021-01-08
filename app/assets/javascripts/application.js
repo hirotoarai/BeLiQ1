@@ -16,3 +16,22 @@
 //= require_tree .
 //= require jquery
 //= require bootstrap-sprockets
+
+$(document).on("turbolinks:load", function(){
+  function readURL(input) {
+    // ファイルが1つ読み込まれた場合
+    if(input.files && input.files[0]){
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        // class="imag_prev"にsrc属性を追加
+        $('.profile_image').attr('src', e.target.result);
+      }
+      // ファイルの中身を読み込む
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+  // ユーザーのprofile_imageの中身を変換
+  $("#user_profile_image").change(function(){
+    readURL(this);
+  });
+});
