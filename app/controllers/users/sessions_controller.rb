@@ -7,6 +7,7 @@ class Users::SessionsController < Devise::SessionsController
 
   #退会した会員が再度ログインしようとした際に拒否する
   def reject_inactive_user
+    puts "fuga"
     @user = User.find_by(name: params[:user][:name])
     if @user
       if @user.valid_password?(params[:user][:password]) && !@user.is_valid
@@ -19,14 +20,17 @@ class Users::SessionsController < Devise::SessionsController
 
 
   # GET /resource/sign_in
-  # def new
-  #   super
-  # end
+  def new
+    puts "hoge"
+    puts params
+    super
+  end
 
   # POST /resource/sign_in
-  # def create
-  #   super
-  # end
+  def create
+    puts "create"
+    super
+  end
 
   # DELETE /resource/sign_out
   # def destroy
