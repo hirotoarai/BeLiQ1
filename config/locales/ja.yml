@@ -1,4 +1,8 @@
 ja:
+  activerecord:
+    errors:
+      messages:
+        record_invalid: "無効です"
   views:
     pagination:
       first: "&laquo; 最初"
