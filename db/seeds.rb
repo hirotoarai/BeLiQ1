@@ -15,7 +15,7 @@
   name: "ah",
   introduction: "プログラミング勉強中",
   password: "ah940325",
-  profile_image: File.open(asset_path("どくろ.jpg")),
+  profile_image: File.open("./public/images/どくろ.jpg"),
   # },
 
   # {
