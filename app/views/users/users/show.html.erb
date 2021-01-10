@@ -1,58 +1,64 @@
 <body>
   <div class="container">
-    <h3>ユーザーマイページ</h3>
-    <div class="row">
-      <div class="col-xs-3">
-         <div class="profile">
-           <table class="table">
-             <%# if admin_signed_in? && request.path.include?("admin") %>
-              	<tr><%= attachment_image_tag @user, :profile_image, fallback: "no_image.jpg", class: "img-circle pull-left profile-thumb", size: "100x100" %></tr>
+    <div class="saito">
+      <h3>ユーザーマイページ</h3>
+      <div class="row">
+        <div class="col-xs-3">
+           <div class="profile">
+             <table class="table">
+                	<tr>
+                	  <%= link_to user_posts_path(@user) do %>
+                    <%= @user.name %>
+                	  <%= attachment_image_tag @user, :profile_image, fallback: "no_image.jpg", class: "img-circle pull-left profile-thumb", size: "100x100" %>
+                	  <% end %>
+                	</tr>
 
-              	<tr>
-              		<th>
-              		  名前:<%= @user.name %>
-              		</th>
-              	</tr>
+                	<tr>
+                		<th>
+                		  名前:<%= @user.name %>
+                		</th>
+                	</tr>
 
-              	<tr>
-              		<th>
-              		  紹介文:<%= @user.introduction %>
-              		</th>
-              	</tr>
+                	<tr>
+                		<th>
+                		  紹介文:<%= @user.introduction %>
+                		</th>
+                	</tr>
 
-              	<tr>
-              	  <%# if @user == current_user %>
-              		<th><%= link_to "プロフィールを編集する", edit_user_path(@user), data: {"turbolinks" => false} %></th>
-              	  <%# end %>
-              	</tr>
+                	<tr>
+                	  <%# if @user == current_user %>
+                		<th><%= link_to "プロフィールを編集する", edit_user_path(@user), data: {"turbolinks" => false} %></th>
+                	  <%# end %>
+                	</tr>
 
-              	<tr>
-              		<th><%= link_to "退会させる", confirm_unsubscribe_path(@user) %></th>
-              	</tr>
-             <%# end %>
-          </table>
-         </div>
-      </div>
+                	<tr>
+                		<th><%= link_to "退会させる", confirm_unsubscribe_path(@user) %></th>
+                	</tr>
+               <%# end %>
+            </table>
+           </div>
+        </div>
 
-      <div class="col-xs-8">
-        <%= form_with model: @post_new, local: true do |f| %>
-          <div class="form-group">
-            <%= f.select :category, [["質問", "質問"], ["投稿", "投稿"]], include_blank: "カテゴリを選択して下さい" %>
-          </div>
-          <div class="form-group">
-            <%= f.text_field :title, placeholder: "タイトル", class: "form-control" %>
-          </div>
-          <div class="form-group">
-            <%= f.text_area :body, size: "100x12", placeholder: "内容をここに記入する", class: "form-control" %>
-          </div>
-          <div class="form-group">
-            <%= f.text_field :tag_name, placeholder: "タグを追加", class: "form-control" %>
-          </div>
-          <h4>画像投稿フォーム</h4>
-            <%= f.attachment_field :post_image %>
-          <h4></h4>
-            <%= f.submit '投稿する' %>
-        <% end %>
+        <div class="col-xs-8">
+          <%= form_with model: @post_new, local: true do |f| %>
+            <div class="form-group">
+              <%= f.select :category, [["質問", "質問"], ["投稿", "投稿"]], include_blank: "カテゴリを選択して下さい" %>
+            </div>
+            <div class="form-group">
+              <%= f.text_field :title, placeholder: "タイトル", class: "form-control" %>
+            </div>
+            <div class="form-group">
+              <%= f.text_area :body, size: "100x12", placeholder: "内容をここに記入する", class: "form-control" %>
+            </div>
+            <div class="form-group">
+              <%= f.text_field :tag_name, placeholder: "タグを追加", class: "form-control" %>
+            </div>
+            <h4>画像投稿フォーム</h4>
+              <%= f.attachment_field :post_image %>
+            <h4></h4>
+              <%= f.submit '投稿する', class: "btn btn-primary" %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>

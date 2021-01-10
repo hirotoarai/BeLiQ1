@@ -45,7 +45,7 @@
         </div>
       </div>
     </header>
-
+    <% if !admin_signed_in? %>
     <div id="box">
       <div id="images">
         <div class="yakei"></div>
@@ -54,6 +54,16 @@
         <div class="yakei4"></div>
       </div>
     </div>
+    <% else %>
+    <div id="splash">
+      <div id="images">
+        <div class="hamabe"></div>
+        <div class="hamabe2"></div>
+        <div class="hamabe3"></div>
+        <div class="hamabe4"></div>
+      </div>
+    </div>
+    <% end %>
 
     <main class="main">
     <%= yield %>

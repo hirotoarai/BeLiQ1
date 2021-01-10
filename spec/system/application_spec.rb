@@ -65,28 +65,16 @@ describe 'ヘッダーのテスト' do
   describe 'ユーザーでログインしている場合' do
     let(:user) { create(:user) }
     before do
-      p user.is_valid
-      #visit new_user_session_path
-      #fill_in 'user[name]', with: user.name
-      #fill_in 'user[password]', with: user.password
-      # puts page.find("user[password]")
-      #click_button 'ログインする'
-      #byebug
-      #user = User.create!(name: "test_name", introduction: "introduction", password: "password")
-      sign_in user
-      # user = create(:user)
-      # visit new_user_session_path
-      # fill_in 'user[name]', with: user.name
-      # fill_in 'user[password]', with: user.password
-      # click_on 'ログインする'
-      visit mypage_path
+      visit new_user_session_path
+      fill_in 'user[name]', with: user.name
+      fill_in 'user[password]', with: user.password
+      click_button 'ログインする'
     end
 
     context 'ヘッダーの表示を確認' do
       subject { page }
       it 'マイページリンクが表示される' do
-        # byebug
-        # expect(page).to have_content 'マイページ'
+        expect(page).to have_content 'マイページ'
         mypage_link = find_all('a')[2].native.inner_text
         expect(mypage_link).to match(/マイページ/i)
       end

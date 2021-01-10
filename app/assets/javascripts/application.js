@@ -14,8 +14,9 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-//= require_tree .
 //= require bootstrap-sprockets
+//= require_tree .
+/* global $ */
 
 $(document).on("turbolinks:load", function(){
   function readURL(input) {
@@ -34,18 +35,13 @@ $(document).on("turbolinks:load", function(){
   $("#user_profile_image").change(function(){
     readURL(this);
   });
-});
 
-// $(document).on('turbolinks:load', function() {
-
-    window.onload = function(){
     /** jQueryの処理 */
-    jQuery(document).ready(function () {
-      jQuery("#images").skippr({
+      $("#images").skippr({
         // スライドショーの変化 ("fade" or "slide")
-        transition : 'slide',
+        transition : 'fade',
         // 変化に係る時間(ミリ秒)
-        speed : 3000,
+        speed : 5000,
         // easingの種類
         easing : 'easeOutQuart',
         // ナビゲーションの形("block" or "bubble")
@@ -57,12 +53,22 @@ $(document).on("turbolinks:load", function(){
         // スライドショーの自動再生(falseで自動再生なし)
         autoPlay : true,
         // 自動再生時のスライド切替間隔(ミリ秒)
-        autoPlayDuration : 3000,
+        autoPlayDuration : 10000,
         // キーボードの矢印キーによるスライド送りの設定(trueで有効)
         keyboardOnAlways : false,
         // 一枚目のスライド表示時に戻る矢印を表示するかどうか(falseで非表示)
         hidePrevious : false
       });
-    });
-  };
-// });
+  });
+
+
+$(function(){
+	$('.js-modal-open').on('click',function(){
+		$('.js-modal').fadeIn();
+		return false;
+	});
+	$('.js-modal-close').on('click',function(){
+		$('.js-modal').fadeOut();
+		return false;
+	});
+});

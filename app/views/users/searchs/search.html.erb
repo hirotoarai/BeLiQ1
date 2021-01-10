@@ -1,49 +1,53 @@
 <body>
   <div class="container">
-    <h3>投稿検索　結果</h3>
-    <%= render 'users/searchs/form' %>
-    <div class="row">
-  		<div class="col-xs-12">
-        <table class="table table-hover table-inverse">
-          <tbody>
-          <% if @posts %>
-    				<% @posts.each do |post| %>
-    				<tr>
-    				  <td>
-    				    <%= post.user.name %>
-                <%= attachment_image_tag post.user, :profile_image, fallback: "no_image.jpg", class: "img-circle pull-left profile-thumb", size: "80x80" %>
-    					</td>
-
-    					<td>
-					      </br>
-					      <h4><ol><%= post.category %></ol></h4>
-					    </td>
-
-    					<td>
-    					  キーワード：
-                  <% post.tags.each do |tag| %>
-                    <h7><%= tag.tag_name %></h7>
+    <div class="saito">
+      <h3>投稿検索　結果</h3>
+      <%= render 'users/searchs/form' %>
+      <div class="row">
+    		<div class="col-xs-12">
+          <table class="table table-hover table-inverse">
+            <tbody>
+            <% if @posts %>
+      				<% @posts.each do |post| %>
+      				<tr>
+      				  <td>
+      				    <%= link_to user_posts_path(post.user_id) do %>
+      				    <%= post.user.name %>
+                  <%= attachment_image_tag post.user, :profile_image, fallback: "no_image.jpg", class: "img-circle pull-left profile-thumb", size: "80x80" %>
                   <% end %>
-    					  <div class="col-xs-2 col-xs-offset-1">
-  					      <i class="glyphicon glyphicon-thumbs-up"></i>
-                  <%= post.favorites.count %>
-                </div>
-                <div class="col-xs-3">
-                  投稿日:<%= post.updated_at.strftime("%Y-%m-%d") %>
-                </div>
-                <%= link_to post_path(post), class: "post_#{post.id}" do %>
-                  <h4><%= post.title %></h4>
-                <% end %>
-              </td>
-            </tr>
+      					</td>
+
+      					<td>
+  					      </br>
+  					      <h4><ol><%= post.category %></ol></h4>
+  					    </td>
+
+      					<td>
+      					  キーワード：
+                    <% post.tags.each do |tag| %>
+                      <h7><%= tag.tag_name %></h7>
+                    <% end %>
+      					  <div class="col-xs-2 col-xs-offset-1">
+    					      <i class="glyphicon glyphicon-thumbs-up"></i>
+                    <%= post.favorites.count %>
+                  </div>
+                  <div class="col-xs-3">
+                    投稿日:<%= post.updated_at.strftime("%Y-%m-%d") %>
+                  </div>
+                  <%= link_to post_path(post), class: "post_#{post.id}" do %>
+                    <h4><%= post.title %></h4>
+                  <% end %>
+                </td>
+              </tr>
+      				<% end %>
     				<% end %>
-  				<% end %>
-  				</tbody>
-  		  </table>
-  		  <div class="text-center">
-          <h4><%= paginate @posts %></h4>
-        </div>
-  		</div>
+    				</tbody>
+    		  </table>
+    		  <div class="text-center">
+            <h4><%= paginate @posts %></h4>
+          </div>
+    		</div>
+      </div>
     </div>
   </div>
 </body>

@@ -21,10 +21,16 @@ class Users::UsersController < ApplicationController
   end
 
   def update
+    @post_new = Post.new
     @user = User.find(params[:id])
     # byebug
-    if @user.update(user_params)
-      redirect_to mypage_path
+    if current_user
+       @user.update(user_params)
+       #render :show
+       redirect_to mypage_path
+    elsif admin_signed_in?
+      @user.update(user_params)
+       redirect_to user_path
     end
   end
 

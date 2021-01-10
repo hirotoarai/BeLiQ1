@@ -1,100 +1,104 @@
 <body>
   <div class="container">
-    <h3>投稿詳細</h3>
+    <div class="saito">
+      <h3>投稿詳細</h3>
 
-    <div class="row">
-      <div class="col-xs-3">
-        <div class="profile">
-          <table class="table">
-            <tbody>
-              <tr>
-                    <%= link_to @user.name, user_posts_path(@user) %>
-                    <%= attachment_image_tag(@user, :profile_image, fallback: "no_image.jpg", class: "img-circle pull-left profile-thumb", size:'100x100') %>
-                <td>・<%= @user.introduction %></td>
-              </tr>
+      <div class="row">
+        <div class="col-xs-3">
+          <div class="profile">
+            <table class="table">
+              <tbody>
+                <tr>
+                      <%= link_to user_posts_path(@user) do %>
+                      <%= @user.name %>
+                      <%= attachment_image_tag(@user, :profile_image, fallback: "no_image.jpg", class: "img-circle pull-left profile-thumb", size:'100x100') %>
+                      <% end %>
+                  <td>・<%= @user.introduction %></td>
+                </tr>
 
-              <tr>
-                <td id="followers_count">・フォロワー数：<%= @user.followers.count %></td>
-              </tr>
+                <tr>
+                  <td id="followers_count">・フォロワー数：<%= @user.followers.count %></td>
+                </tr>
 
-              <tr>
-                <% if user_signed_in? && @user != current_user %>
-                  <td><div id="follow_form">
-                    <% if current_user.following?(@user) %>
-                      <%= render 'unfollow' %>
-                    <% else %>
-                      <%= render 'follow' %>
-                    <% end %></td>
-                  </div>
-                <% end %>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <div class="col-xs-9">
-        <div class="col-md-offset-5">
-          <% if user_signed_in? %>
-          <td class="favorite_post_<%= @post.id %>">
-            <%= render 'users/favorites/favorites', post: @post %>
-          <% end %>
-          </td>
-          投稿日:<%= @post.updated_at.strftime("%Y-%m-%d") %>
-        </div>
-        <h3>カテゴリ</h3>
-          <h4><%= @post.category %></h4>
-        <h3>タイトル</h3>
-          <h4><%= @post.title %></h4>
-        <h3>本文</h3>
-          <h4><%= safe_join(@post.body.split("\n"),tag(:br)) %></h4>
-          <a href="" data-lightbox="group" id="lightbox_link">
-          <%= attachment_image_tag(@post, :post_image, size: "300x300", id:"lightbox_img") %>
-          </a></br>
-          <script>
-          var img_src = $('#lightbox_img').attr('src');
-          $('#lightbox_link').attr('href',img_src);
-          </script>
-          <h4>タグから検索
-          <% @post_tags.each do |tag| %>
-            ⭐️<%= link_to tag.tag_name, tag_posts_path(tag_id: tag.id)%>
-                <%= tag.posts.count %>
-          <% end %></h4>
-
-          <% if @post.user == current_user %>
-            <%= link_to "編集する", edit_post_path(@post) %>
-            <%= link_to "削除する", post_path(@post), method: :delete, data: {confirm: "削除してよろしいですか？"} %>
-          <% end %>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-xs-3">
-      </div>
-      <div class="col-xs-9">
-      <table class="table table-hover table-inverse table-bordered_<%= @post.id %>">
-        <tbody>
-          <h5>コメントが<%= @post.post_comments.count%>件あります</h5>
-          <%= render 'users/post_comments/post_comments', post_comments: @post_comments %>
-        </tbody>
-      </table>
-        <div class="text-center">
-          <h4><%= paginate @post_comments %></h4>
-        </div>
-      </div>
-    </div>
-
-    <% if flash[:notice] %>
-      <p class="notice"><%= notice %></p>
-    <% end %>
-    <%= form_with(model:[@post, @post_comment]) do |f| %>
-			<div class="row">
-			  <div class="col-xs-3">
+                <tr>
+                  <% if user_signed_in? && @user != current_user %>
+                    <td><div id="follow_form">
+                      <% if current_user.following?(@user) %>
+                        <%= render 'unfollow' %>
+                      <% else %>
+                        <%= render 'follow' %>
+                      <% end %></td>
+                    </div>
+                  <% end %>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
         <div class="col-xs-9">
-					<%= f.text_area :content, rows:'5', class: "form-control comment_form",placeholder: "コメントをここに記入する" %>
-		    	<%= f.submit "コメントする" %>
-		<% end %>
-		    </div>
- 			</div>
+          <div class="col-md-offset-5">
+            <% if user_signed_in? %>
+            <td class="favorite_post_<%= @post.id %>">
+              <%= render 'users/favorites/favorites', post: @post %>
+            <% end %>
+            </td>
+            投稿日:<%= @post.updated_at.strftime("%Y-%m-%d") %>
+          </div>
+          <h3>カテゴリ</h3>
+            <h4><%= @post.category %></h4>
+          <h3>タイトル</h3>
+            <h4><%= @post.title %></h4>
+          <h3>本文</h3>
+            <h4><%= safe_join(@post.body.split("\n"),tag(:br)) %></h4>
+            <a href="" data-lightbox="group" id="lightbox_link">
+            <%= attachment_image_tag(@post, :post_image, size: "300x300", id:"lightbox_img") %>
+            </a></br>
+            <script>
+            var img_src = $('#lightbox_img').attr('src');
+            $('#lightbox_link').attr('href',img_src);
+            </script>
+            <h4>タグから検索
+            <% @post_tags.each do |tag| %>
+              ⭐️<%= link_to tag.tag_name, tag_posts_path(tag_id: tag.id)%>
+                  <%= tag.posts.count %>
+            <% end %></h4>
+
+            <% if @post.user == current_user || admin_signed_in? %>
+              <%= link_to "編集する", edit_post_path(@post), class: "btn btn-primary" %>
+              <%= link_to "削除する", post_path(@post), method: :delete, data: {confirm: "削除してよろしいですか？"}, class: "btn btn-danger" %>
+            <% end %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-3">
+        </div>
+        <div class="col-xs-9">
+        <table class="table table-hover table-inverse table-bordered_<%= @post.id %>">
+          <tbody>
+            <h5>コメントが<%= @post.post_comments.count%>件あります</h5>
+            <%= render 'users/post_comments/post_comments', post_comments: @post_comments %>
+          </tbody>
+        </table>
+          <div class="text-center">
+            <h4><%= paginate @post_comments %></h4>
+          </div>
+        </div>
+      </div>
+
+      <% if flash[:notice] %>
+        <p class="notice"><%= notice %></p>
+      <% end %>
+      <%= form_with(model:[@post, @post_comment]) do |f| %>
+  			<div class="row">
+  			  <div class="col-xs-3">
+          </div>
+          <div class="col-xs-9">
+  					<%= f.text_area :content, rows:'5', class: "form-control comment_form",placeholder: "コメントをここに記入する" %>
+  		    	<%= f.submit "コメントする" %>
+  		<% end %>
+  		    </div>
+   			</div>
+ 		</div>
   </div>
 </body>

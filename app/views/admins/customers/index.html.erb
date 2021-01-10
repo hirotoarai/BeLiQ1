@@ -1,59 +1,65 @@
-<body class="splash">
+<body>
   <div class="container">
-    <h3>会員一覧</h3>
-    <div class="row">
-      <div class="col-xs-12">
-         <div class="profile">
-           <table class="table">
-          	<tbody>
-          		<% @users.each do |user| %>
-          		<tr>
-          			<td><%= attachment_image_tag user, :profile_image, fallback: "no_image.jpg", class: "img-circle pull-left profile-thumb", size:'80x80' %>
-          			    <%= link_to user.name, user_path(user) %></td>
+    <div class="saito">
+      <h3>会員一覧</h3>
+      <div class="row">
+        <div class="col-xs-12">
+           <div class="profile">
+             <table class="table">
+            	<tbody>
+            		<% @users.each do |user| %>
+            		<tr>
+            			<td>
+            			  <%= link_to user_path(user) do %>
+            			  <%= user.name %>
+            			  <%= attachment_image_tag user, :profile_image, fallback: "no_image.jpg", class: "img-circle pull-left profile-thumb", size:'80x80' %>
+                    <% end %>
+            			</td>
 
-    					   <td>最終投稿日:
-    					   <%= user.posts.order(:updated_at).last.updated_at.strftime("%Y-%m-%d") if user.posts.count > 0 %>
-    					   </td>
+      					   <td>最終投稿日:
+      					     <%= user.posts.order(:updated_at).last.updated_at.strftime("%Y-%m-%d") if user.posts.count > 0 %>
+      					   </td>
 
-    					   <td>
-      					   <% if user.is_valid == TRUE %>
-    				         <p class=""><ol><%= '有効会員' %></ol></p>
-    			         <% else %>
-    				         <ol><p class="notice"><%= '退会済' %></p></ol>
-    				         <%= link_to "削除する", admins_customer_path(user), method: :delete, data: {confirm: "退会済みのユーザーを削除しますか？"} %>
-    			         <% end %>
-                 </td>
-          		</tr>
-          		<% end %>
-          	</tbody>
+      					   <td>
+        					   <% if user.is_valid == TRUE %>
+      				         <p class=""><ol><%= '有効会員' %></ol></p>
+      			         <% else %>
+      				         <ol><p class="notice"><%= '退会済' %></p></ol>
+      				         <%= link_to "削除する", admins_customer_path(user), method: :delete, data: {confirm: "退会済みのユーザーを削除しますか？"}, class: "btn btn-danger" %>
+      			         <% end %>
+                   </td>
+            		</tr>
+            		<% end %>
+            	</tbody>
+            </table>
+            <div class="text-center">
+              <h4><%= paginate @users %></h4>
+            </div>
+           </div>
+        </div>
+
+        <div class="container">
+            <table class="table">
+              <tbody>
+                <h3>記事　いいね数ランキング</h3>
+              <% @all_ranks.each.with_index(1) do |post, i| %>
+                <tr>
+                  <td><h4>第
+                  <%= i %>
+                    位
+                  <%= link_to post.title, post_path(post) %><h4></td>
+
+                  <td>投稿日:<%= post.updated_at.strftime("%Y-%m-%d") %></td>
+        		      <td>
+        		        <i class="glyphicon glyphicon-thumbs-up"></i>
+                    <%= post.favorites.count %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
           </table>
-          <div class="text-center">
-            <h4><%= paginate @users %></h4>
-          </div>
-         </div>
+        </div>
       </div>
     </div>
-  </div>
-
-  <div class="container">
-    <table class="table">
-      <tbody>
-        <h3>記事　いいね数ランキング</h3>
-      <% @all_ranks.each.with_index(1) do |post, i| %>
-        <tr>
-          <td><h4>第
-          <%= i %>
-            位
-          <%= link_to post.title, post_path(post) %><h4></td>
-
-          <td>投稿日:<%= post.updated_at.strftime("%Y-%m-%d") %></td>
-		      <td>
-		        <i class="glyphicon glyphicon-thumbs-up"></i>
-            <%= post.favorites.count %>
-          </td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
   </div>
 </body>

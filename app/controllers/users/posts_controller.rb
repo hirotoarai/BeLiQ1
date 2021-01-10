@@ -1,10 +1,12 @@
 class Users::PostsController < ApplicationController
-  before_action :authenticate_user!, only: [:edit]
+  # before_action :authenticate_user!, only: [:edit]
 
   def index
     #binding.pry
     @user = current_user
-    @posts = current_user.posts.all.page(params[:page]).per(10)
+    # @user_id = User.where(user_id: "")
+    # @posts = @user_id.post.all.page(params[:page]).per(10)
+    @posts = @user.posts.all.page(params[:page]).per(10)
   end
 
   def show
@@ -39,9 +41,9 @@ class Users::PostsController < ApplicationController
     @tag_list = @post.tags.pluck(:tag_name).join(" ")
     @user = User.find(@post.user_id)
     #投稿したユーザーがカレントユーザーでなかった時
-    if @post.user != current_user
-      redirect_to posts_path
-    end
+    # if @post.user != current_user
+    #   redirect_to posts_path
+    # end
   end
 
   def update
@@ -49,14 +51,14 @@ class Users::PostsController < ApplicationController
     tag_list = params[:post][:tag_name].split(nil)
     if @post.update(post_params)
       @post.save_tag(tag_list)
-      redirect_to posts_path
+      redirect_to post_path
     end
   end
 
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    redirect_to posts_path
+    redirect_to root_path
   end
 
   def search
