@@ -71,7 +71,7 @@ h3 {
 }
 
 h7 {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(240, 255, 255, 0.95);
   padding: 7px;
   border-radius: 25px;
 }
@@ -240,4 +240,43 @@ footer {
 }
 .btn:active {
   top: 2px;
+}
+
+.svg-wrapper {
+  // margin-top: 0;
+  // position: relative;
+  width: 150px;
+  height: 40px;
+  display: inline-block;
+  // border-radius: 3px;
+  // margin-left: 5px;
+  // margin-right: 5px
+}
+
+#shape {
+  stroke-width: 6px;
+  fill: transparent;
+  stroke: #009FFD;
+  stroke-dasharray: 85 400;
+  stroke-dashoffset: -220;
+  transition: 1s all ease;
+}
+
+#text {
+  margin-top: -35px;
+  text-align: center;
+}
+
+#text a {
+  color: blue;
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 1.1em;
+}
+
+.svg-wrapper:hover #shape {
+  stroke-dasharray: 50 0;
+  stroke-width: 3px;
+  stroke-dashoffset: 0;
+  stroke: #06D6A0;
 }

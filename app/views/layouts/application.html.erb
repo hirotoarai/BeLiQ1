@@ -23,20 +23,88 @@
           <div class="col-md-8 col-md-offset-1">
             <div class="row">
               <ul class="nav navbar-nav navbar-right">
-                  <li><%= link_to 'top', root_path %></li>
-                  <li><%= link_to 'about', about_path %></li>
+                <div class="svg-wrapper">
+                  <svg height="40" width="150" xmlns="http://www.w3.org/2000/svg">
+                    <rect id="shape" height="40" width="150" />
+                    <div id="text">
+                      <li><%= link_to 'top', root_path %></li>
+                    </div>
+                  </svg>
+                </div>
+
+                <div class="svg-wrapper">
+                  <svg height="40" width="150" xmlns="http://www.w3.org/2000/svg">
+                    <rect id="shape" height="40" width="150" />
+                    <div id="text">
+                      <li><%= link_to 'about', about_path %></li>
+                    </div>
+                  </svg>
+                </div>
                 <% if user_signed_in? %>
-                  <li><%= link_to 'マイページ', mypage_path %></li>
-                  <li><%= link_to '投稿一覧', posts_path %></li>
-                  <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li></br>
+                <div class="svg-wrapper">
+                  <svg height="40" width="150" xmlns="http://www.w3.org/2000/svg">
+                    <rect id="shape" height="40" width="150" />
+                    <div id="text">
+                      <li><%= link_to 'マイページ', mypage_path %></li>
+                    </div>
+                  </svg>
+                </div>
+
+                <div class="svg-wrapper">
+                  <svg height="40" width="150" xmlns="http://www.w3.org/2000/svg">
+                    <rect id="shape" height="40" width="150" />
+                    <div id="text">
+                      <li><%= link_to '投稿一覧', posts_path %></li>
+                    </div>
+                  </svg>
+                </div>
+
+                <div class="svg-wrapper">
+                  <svg height="40" width="150" xmlns="http://www.w3.org/2000/svg">
+                    <rect id="shape" height="40" width="150" />
+                    <div id="text">
+                      <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+                    </div>
+                  </svg>
+                </div>
                   <li>ようこそ、<%= current_user.name %>さん！</li>
                 <% elsif admin_signed_in? %>
-                  <li><%= link_to '会員一覧', admins_top_path %></li>
-                  <li><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %></li></br>
+                <div class="svg-wrapper">
+                  <svg height="40" width="150" xmlns="http://www.w3.org/2000/svg">
+                    <rect id="shape" height="40" width="150" />
+                    <div id="text">
+                      <li><%= link_to '会員一覧', admins_top_path %></li>
+                    </div>
+                  </svg>
+                </div>
+
+                <div class="svg-wrapper">
+                  <svg height="40" width="150" xmlns="http://www.w3.org/2000/svg">
+                    <rect id="shape" height="40" width="150" />
+                    <div id="text">
+                      <li><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %></li>
+                    </div>
+                  </svg>
+                </div>
                   <li>管理者：<%= current_admin.name %>さんでログイン中</li>
                 <% else %>
-                  <li><%= link_to 'ログイン', new_user_session_path %></li>
-                  <li><%= link_to '新規登録', new_user_registration_path %></li></br></br>
+                <div class="svg-wrapper">
+                  <svg height="40" width="150" xmlns="http://www.w3.org/2000/svg">
+                    <rect id="shape" height="40" width="150" />
+                    <div id="text">
+                      <li><%= link_to 'ログイン', new_user_session_path %></li>
+                    </div>
+                  </svg>
+                </div>
+
+                <div class="svg-wrapper">
+                  <svg height="40" width="150" xmlns="http://www.w3.org/2000/svg">
+                    <rect id="shape" height="40" width="150" />
+                    <div id="text">
+                      <li><%= link_to '新規登録', new_user_registration_path %></li>
+                    </div>
+                  </svg>
+                </div>
                   <h5>会員登録すると投稿できるようになります！</h5></div>
                 <% end %>
               </ul>
@@ -70,11 +138,25 @@
     </main>
 
     <footer>
-      <div class="navbar-footer">
+      <span id="back">
+        <a href="#">
+          <div class="navbar-footer">
             <a class="navbar-logo">
-              <%= image_tag 'main_logo.png', :width => '100', :height => '100' %>
+              <div class="img_wrap">
+                <img src="main_logo.png" alt="">
+                  <%= image_tag 'main_logo.png', :width => '100', :height => '100' %>
+                </img>
+              </div>
             </a>
-      </div>
+          </div>
+        </a>
+      </span>
+      <!--<div class="navbar-footer">-->
+      <!--      <a class="navbar-logo">-->
+
+      <!--      </a>-->
+      <!--</div>-->
+
       <p class="footer-text">©2020 BiLeQ</p>
         <!--<div class="row">-->
         <!--  <div class="col-md-8 col-md-offset-2">-->
