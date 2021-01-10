@@ -67,6 +67,7 @@ h3 {
   display: inline-block;
   padding: 7px;
   border-radius: 25px;
+  font-weight: 600;
 }
 
 h7 {
@@ -80,6 +81,7 @@ ol {
   display: inline-block;
   padding: 7px;
   border-radius: 25px;
+  text-align: left;
 }
 
 .row {
@@ -207,3 +209,35 @@ footer {
 //   margin-bottom: 300px;
 //   text-align: center;
 // }
+
+.img_wrap{
+  transition-duration: 0.5s;
+}
+.img_wrap img{
+  cursor: pointer;
+}
+.img_wrap:hover{
+  // box-shadow: 10px 10px 10px rgba(0,0,0,0.5);
+  transform: translateY(-10px);
+  transition-duration: 0.5s;
+}
+
+.btn {
+  // padding: 10px 25px;
+  // font-family: "Roboto", sans-serif;
+  // font-weight: 500;
+  // background: transparent;
+  outline: none !important;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  // display: inline-block;
+  // border: 2px solid #000;
+}
+.btn:hover {
+  // background: #000;
+  color: #fff;
+}
+.btn:active {
+  top: 2px;
+}

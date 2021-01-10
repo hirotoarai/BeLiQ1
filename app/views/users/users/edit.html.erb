@@ -7,7 +7,15 @@
            <div class="profile">
              <table class="table">
             	<tr>
-            	  <%= attachment_image_tag @user, :profile_image, fallback: "no_image.jpg", class: "img-circle pull-left profile-thumb", size: "150x150" %>
+            	  <a href="" data-lightbox="group" id="lightbox_link">
+              	  <div class="img_wrap">
+              	    <%= attachment_image_tag @user, :profile_image, fallback: "no_image.jpg", class: "img-circle pull-left profile-thumb", size: "150x150", id:"lightbox_img" %>
+              	  </div>
+            	  </a></br>
+                <script>
+                var img_src = $('#lightbox_img').attr('src');
+                $('#lightbox_link').attr('href',img_src);
+                </script>
             	</tr>
   　　　　　　<tr>
             	<%= form_with model: @user do |f| %>

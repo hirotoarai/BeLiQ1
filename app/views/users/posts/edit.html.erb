@@ -9,8 +9,10 @@
             <table class="table">
               <tbody>
                 <tr>
-                  <%= @user.name %>
-                  <%= attachment_image_tag(@user, :profile_image, fallback: "no_image.jpg", class: "img-circle pull-left profile-thumb", size:'100x100', id:"profile_image") %>
+                  <p><%= @user.name %></p>
+                  <div class="img_wrap">
+                    <%= attachment_image_tag(@user, :profile_image, fallback: "no_image.jpg", class: "img-circle pull-left profile-thumb", size:'100x100', id:"profile_image") %>
+                  </div>
                   <td>・<%= @user.introduction %></td>
                 </tr>
               </tbody>

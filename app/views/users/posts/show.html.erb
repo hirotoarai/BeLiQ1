@@ -9,10 +9,12 @@
             <table class="table">
               <tbody>
                 <tr>
-                      <%= link_to user_posts_path(@user) do %>
-                      <%= @user.name %>
-                      <%= attachment_image_tag(@user, :profile_image, fallback: "no_image.jpg", class: "img-circle pull-left profile-thumb", size:'100x100') %>
-                      <% end %>
+                    <%= link_to user_posts_path(@user) do %>
+                      <div class="img_wrap">
+                        <p><%= @user.name %></p>
+                        <%= attachment_image_tag(@user, :profile_image, fallback: "no_image.jpg", class: "img-circle pull-left profile-thumb", size:'100x100') %>
+                      </div>
+                    <% end %>
                   <td>・<%= @user.introduction %></td>
                 </tr>
 
@@ -51,7 +53,9 @@
           <h3>本文</h3>
             <h4><%= safe_join(@post.body.split("\n"),tag(:br)) %></h4>
             <a href="" data-lightbox="group" id="lightbox_link">
-            <%= attachment_image_tag(@post, :post_image, size: "300x300", id:"lightbox_img") %>
+              <div class="img_wrap">
+                <%= attachment_image_tag(@post, :post_image, size: "300x300", id:"lightbox_img") %>
+              </div>
             </a></br>
             <script>
             var img_src = $('#lightbox_img').attr('src');
@@ -59,8 +63,10 @@
             </script>
             <h4>タグから検索
             <% @post_tags.each do |tag| %>
-              ⭐️<%= link_to tag.tag_name, tag_posts_path(tag_id: tag.id)%>
+              <div class="img_wrap">
+                ⭐️<%= link_to tag.tag_name, tag_posts_path(tag_id: tag.id)%>
                   <%= tag.posts.count %>
+              </div>
             <% end %></h4>
 
             <% if @post.user == current_user || admin_signed_in? %>
@@ -95,7 +101,7 @@
           </div>
           <div class="col-xs-9">
   					<%= f.text_area :content, rows:'5', class: "form-control comment_form",placeholder: "コメントをここに記入する" %>
-  		    	<%= f.submit "コメントする" %>
+  		    	<%= f.submit "コメントする", class: "btn btn-primary" %>
   		<% end %>
   		    </div>
    			</div>

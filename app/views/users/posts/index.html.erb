@@ -13,6 +13,8 @@
       				  <td>
 
 
+
+
     					  </td>
 
       				  <td>
@@ -33,7 +35,9 @@
     					      投稿日:<%= post.updated_at.strftime("%Y-%m-%d") %>
     					    </div>
                   <%= link_to post_path(post), class: "post_#{post.id}" do %>
-                    <h4><%= post.title %></h4>
+                    <div class="img_wrap">
+                      <h4></br><%= post.title %></h4>
+                    </div>
                   <% end %>
                 </td>
               </tr>
