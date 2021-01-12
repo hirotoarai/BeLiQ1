@@ -70,6 +70,7 @@
             <% end %></h4>
 
             <% if @post.user == current_user || admin_signed_in? %>
+
               <%= link_to "編集する", edit_post_path(@post), class: "btn btn-success" %>
               <%= link_to "削除する", post_path(@post), method: :delete, data: {confirm: "削除してよろしいですか？"}, class: "btn btn-danger" %>
             <% end %>
