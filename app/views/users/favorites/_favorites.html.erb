@@ -1,11 +1,15 @@
 <% if post.favorited_by?(current_user) %>
+  <div class="btn">
   <%= link_to post_favorites_path(post), method: :delete, remote: true do %>
     <i class="glyphicon glyphicon-thumbs-up"></i>
   <% end %>
+  </div>
   <%= post.favorites.count %>
 <% else %>
+  <div class="btn">
   <%= link_to post_favorites_path(post), method: :post, remote: true do %>
     <i class="glyphicon glyphicon-thumbs-up"></i>
   <% end %>
+  </div>
   <%= post.favorites.count %>
 <% end %>

@@ -31,11 +31,19 @@
             	</tr>
 
             	<tr>
-            		<th><%= link_to "プロフィールを編集する", edit_user_path(@user), data: {"turbolinks" => false} %></th>
+          		  <th>
+          		    <div class="img_wrap">
+          		      <%= link_to "プロフィールを編集する", edit_user_path(@user), data: {"turbolinks" => false} %>
+          		    </div>
+          		  </th>
             	</tr>
 
             	<tr>
-            		<th><%= link_to "退会する", confirm_unsubscribe_path(@user) %></th>
+            	  <th>
+          		    <div class="img_wrap">
+          		      <%= link_to "退会する", confirm_unsubscribe_path(@user) %>
+          		    </div>
+          		  </th>
             	</tr>
             </table>
           </div>

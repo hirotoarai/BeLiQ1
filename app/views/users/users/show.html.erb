@@ -7,12 +7,18 @@
            <div class="profile">
              <table class="table">
                 	<tr>
-                	  <%= link_to user_posts_path(@user) do %>
-                	    <div class="img_wrap">
-                        <p><%= @user.name %></p>
-                	      <%= attachment_image_tag @user, :profile_image, fallback: "no_image.jpg", class: "img-circle pull-left profile-thumb", size: "100x100" %>
-                	    </div>
-                	  <% end %>
+                	  <a href="" data-lightbox="group" id="lightbox_link">
+                  	  <%= link_to user_posts_path(@user) do %>
+                  	    <div class="img_wrap">
+                          <p><%= @user.name %></p>
+                  	      <%= attachment_image_tag @user, :profile_image, fallback: "no_image.jpg", class: "img-circle pull-left profile-thumb", size: "100x100", id:"lightbox_img" %>
+                  	    </div>
+                  	  <% end %>
+                  	</a></br>
+                      <script>
+                      var img_src = $('#lightbox_img').attr('src');
+                      $('#lightbox_link').attr('href',img_src);
+                      </script>
                 	</tr>
 
                 	<tr>
@@ -27,16 +33,21 @@
                 		</th>
                 	</tr>
 
-                	<tr>
-                	  <%# if @user == current_user %>
-                		<th><%= link_to "プロフィールを編集する", edit_user_path(@user), data: {"turbolinks" => false} %></th>
-                	  <%# end %>
+                  <tr>
+              		  <th>
+              		    <div class="img_wrap">
+              		      <%= link_to "プロフィールを編集する", edit_user_path(@user), data: {"turbolinks" => false} %>
+              		    </div>
+              		  </th>
                 	</tr>
 
                 	<tr>
-                		<th><%= link_to "退会させる", confirm_unsubscribe_path(@user) %></th>
+                	  <th>
+              		    <div class="img_wrap">
+              		      <%= link_to "退会させる", confirm_unsubscribe_path(@user) %>
+              		    </div>
+              		  </th>
                 	</tr>
-               <%# end %>
             </table>
            </div>
         </div>
