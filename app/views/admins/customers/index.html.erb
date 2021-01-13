@@ -26,7 +26,7 @@
         					   <% if user.is_valid == TRUE %>
       				         <p class=""><ol><%= '有効会員' %></ol></p>
       			         <% else %>
-      				         <ol><p class="notice"><%= '退会済' %></p></ol>
+      				         <ol><p class="notice"><%= '退会済み' %></p></ol>
       				         <%= link_to "削除する", admins_customer_path(user), method: :delete, data: {confirm: "退会済みのユーザーを削除しますか？"}, class: "btn btn-danger" %>
       			         <% end %>
                    </td>

@@ -34,7 +34,7 @@
 <https://docs.google.com/spreadsheets/d/1bsWxvZbhAWCFiFj2fYkeyzCAmDIpA7qWdW0VnjXdpIs/edit#gid=0>
 
 ## 開発環境
-- OS：Catalina
+- OS：Linux
 - 言語：HTML,CSS,Ruby
 - フレームワーク：Ruby on Rails
 - IDE：Cloud9

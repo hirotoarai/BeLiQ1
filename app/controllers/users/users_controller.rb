@@ -42,8 +42,12 @@ class Users::UsersController < ApplicationController
     #@user = User.find_by(name: params[:name])
     @user = User.find(params[:id])
     @user.update(is_valid: false)
-    reset_session
-    redirect_to root_path
+    if admin_signed_in?
+      redirect_to admins_top_path
+    else
+      reset_session
+      redirect_to root_path
+    end
   end
 
   def posts
