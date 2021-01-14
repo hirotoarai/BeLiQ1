@@ -256,7 +256,30 @@ footer {
   position: relative; //リンクを押した時に押し下げる
   // display: inline-block;
   // border: 2px solid #000;
+  overflow: hidden; //ボタンを光らせる
+  &:before {
+    content: "";
+    background-color: rgba(255,255,255,0.5);
+    height: 100%;
+    width: 3em;
+    // display: block;
+    position: absolute;
+    top: 0;
+    left: -4.5em;
+    // transform: skewX(-45deg) translateX(0);
+    // transition: none;
+  }
+  &:hover {
+    // background-color: $color;
+    // color: #fff;
+    // border-bottom: 4px solid darken($color, 10%);
+    &:before {
+      transform: skewX(-45deg) translateX(13.5em);
+     transition: all 0.5s ease-in-out;
+    }
+  }
 }
+
 .btn:hover {
   // background: #000;
   transform: translateY(-8px); //マウスオーバーで文字を浮かせる
