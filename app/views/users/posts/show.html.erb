@@ -63,16 +63,26 @@
             </script>
             <h4>タグから検索
             <% @post_tags.each do |tag| %>
-              <span class="img_wrap">
-                ⭐️<%= link_to tag.tag_name, tag_posts_path(tag_id: tag.id)%>
+              <div class="img_wrap">
+                ⭐️<%= link_to tag.tag_name, tag_posts_path(tag_id: tag.id) %>
                   <%= tag.posts.count %>
-              </span>
+              </div>
             <% end %></h4>
-
             <% if @post.user == current_user || admin_signed_in? %>
-
-              <%= link_to "編集する", edit_post_path(@post), class: "btn btn-success" %>
-              <%= link_to "削除する", post_path(@post), method: :delete, data: {confirm: "削除してよろしいですか？"}, class: "btn btn-danger" %>
+              <!--<div class="btn">-->
+              <!--  <move class="custom-btn btn-4">-->
+              <!--    <move>-->
+                    <%= link_to "編集する", edit_post_path(@post), class: "btn btn-success" %>
+              <!--    </move>-->
+              <!--  </move>-->
+              <!--</div>-->
+              <!--<div class="btn">-->
+              <!--  <move2 class="custom-btn2 btn-5">-->
+              <!--    <move2>-->
+                    <%= link_to "削除する", post_path(@post), method: :delete, data: {confirm: "削除してよろしいですか？"}, class: "btn btn-danger" %>
+              <!--    </move2>-->
+              <!--  </move2>-->
+              <!--</div>-->
             <% end %>
         </div>
       </div>
