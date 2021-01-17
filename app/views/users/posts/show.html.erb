@@ -1,6 +1,9 @@
 <body>
   <div class="container">
     <div class="saito">
+      <%= link_to :back do %>
+        <h2><span class="glyphicon glyphicon-hand-left" aria-hidden="true"></span></h2>
+      <% end %>
       <h3>投稿詳細</h3>
 
       <div class="row">
@@ -64,7 +67,8 @@
             <h4>タグから検索
             <% @post_tags.each do |tag| %>
               <div class="img_wrap">
-                ⭐️<%= link_to tag.tag_name, tag_posts_path(tag_id: tag.id) %>
+                  <span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span>
+                  <%= link_to tag.tag_name, tag_posts_path(tag_id: tag.id) %>
                   <%= tag.posts.count %>
               </div>
             <% end %></h4>
