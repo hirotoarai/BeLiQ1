@@ -33,6 +33,7 @@ class Post < ApplicationRecord
   def self.search(search, type)
     if search
       Post.where('title LIKE ?', "%#{search}%")
+      Post.where('body LIKE ?', "%#{search}%")
     else
       Post.all
     end
