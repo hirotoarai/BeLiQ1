@@ -45,6 +45,7 @@
                         <h4></br><%= post.title %></h4>
                     </div>
                   <% end %>
+                  <h5><%= post.body.truncate(10) %></h5>
                 </td>
               </tr>
               <% end %>
