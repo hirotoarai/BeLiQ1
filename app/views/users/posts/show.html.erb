@@ -67,7 +67,7 @@
             <h4>タグから検索
             <% @post_tags.each do |tag| %>
               <div class="img_wrap">
-                  <span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span>
+                  <span class="glyphicon glyphicon-tags" aria-hidden="true"></span>
                   <%= link_to tag.tag_name, tag_posts_path(tag_id: tag.id) %>
                   <%= tag.posts.count %>
               </div>
