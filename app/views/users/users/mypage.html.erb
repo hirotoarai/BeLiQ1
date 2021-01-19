@@ -67,7 +67,15 @@
               <%= f.text_field :tag_name, placeholder: "タグを追加", class: "form-control" %>
             </div>
             <h4>画像投稿フォーム</h4>
-              <%= f.attachment_field :post_image %>
+            <div class="image_wrapper">
+              <div class="item_image_btn">
+                <%= f.attachment_field :post_image, id: "file" %>
+              </div>
+              <div id="img_field" onClick="$('#file').click()" >
+                <h4><span class="glyphicon glyphicon-cloud-upload" aria-hidden="true"></span></h4>
+              </div>
+            </div>
+              <%#= f.attachment_field :post_image %>
             <h4></h4>
               <%= f.submit '投稿する', class: "btn btn-primary" %>
           <% end %>

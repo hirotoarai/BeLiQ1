@@ -592,3 +592,20 @@ button:active {
 //   0% {filter: blur(0px);}
 //   100% {filter: blur(4px);}
 // }
+
+.item_image_btn{
+    display: none; //元の送信ボタンを隠す
+}
+
+// #img_field {
+//   font-size: 25px;
+//   font-style: inherit;
+//   margin: 0 auto;
+//   color: white;
+//   background-color: #5bc0de;
+//   border-radius: 5px;
+//   width: 300px;
+//   height: 40px;
+//   text-align: center;
+//   line-height: 40px;
+// }
