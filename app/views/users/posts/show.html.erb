@@ -99,7 +99,11 @@
           <tbody>
             <h5>
               <i class="glyphicon glyphicon-comment"></i>
-              コメントが<%= @post.post_comments.count%>件あります
+                <% if @post.post_comments.present? %>
+                  コメントが<%= @post.post_comments.count%>件あります!
+                <% else %>
+                  まだコメントがありません...
+                <% end %>
             </h5>
             <%= render 'users/post_comments/post_comments', post_comments: @post_comments %>
           </tbody>
