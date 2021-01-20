@@ -101,8 +101,8 @@
               <i class="glyphicon glyphicon-comment"></i>
                 <% if @post.post_comments.present? %>
                   コメントが<%= @post.post_comments.count%>件あります!
-                <% else %>
-                  まだコメントがありません...
+                <%# else %>
+                  <!--まだコメントがありません...-->
                 <% end %>
             </h5>
             <%= render 'users/post_comments/post_comments', post_comments: @post_comments %>
