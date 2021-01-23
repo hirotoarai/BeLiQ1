@@ -3,6 +3,7 @@ class Users::UsersController < ApplicationController
 
   def show
     @post_new = Post.new
+    @posts = Post.where(user_id: params[:id])
     @user = User.find(params[:id])
   end
 

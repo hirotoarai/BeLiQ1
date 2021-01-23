@@ -51,9 +51,13 @@
 
                 	<tr>
                 	  <th>
-              		    <div class="img_wrap">
-              		      <%= link_to "この会員の投稿一覧", user_posts_path(@user) %>
-              		    </div>
+                	    <% if @posts.present? %>
+                		    <div class="img_wrap">
+                		      <%= link_to "この会員の投稿一覧", user_posts_path(@user) %>
+                		    </div>
+                		  <% else %>
+                		      まだ投稿がありません、、、
+                		  <% end %>
               		  </th>
                 	</tr>
             </table>
