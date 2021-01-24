@@ -39,7 +39,9 @@
                     <%= post.post_comments.count %>
                   </div>
                   <div class="col-xs-3">
-    					      投稿日:<%= post.updated_at.strftime("%Y-%m-%d") %>
+                    <postddate>
+    					        投稿日:<%= post.updated_at.strftime("%Y-%m-%d") %>
+    					      </postddate>
     					    </div>
                   <%= link_to post_path(post), class: "post_#{post.id}" do %>
                     <div class="img_wrap">
