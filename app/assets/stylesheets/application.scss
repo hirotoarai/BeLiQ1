@@ -28,7 +28,6 @@
 
 .container{
   padding-top: 140px; //saitoの上下の幅
-  // background-color: rgba(255, 255, 255, 0.7);
 }
 
 .saito {
@@ -40,15 +39,15 @@
 }
 
 .saito-scroll {
-  opacity: 1;
-  transform: translate(0, 0);
+  opacity: 1; /* フェードインで動く高さを指定 */
+  transform: translate(0, 0); //下からフェードイン
 }
 
 header {
-  z-index: 100;
+  z-index: 100;//ヘッダー最前面に表示
   height: 140px;
   width: 100%;
-  position: fixed;
+  position: fixed;//ヘッダーを最上部に固定
   background-color: rgba(240, 255, 255, 0.95);
   margin-bottom: 100px;
 }
@@ -626,8 +625,8 @@ postddate {
 }
 
 .taikailabel  {
-  color: #FF0000;
-  background-color: rgba(255, 255, 224, 0.9);
+  color: #FF0000;//赤
+  background-color: rgba(255, 255, 224, 0.9); //薄黄色
   display: inline-block;
   padding: 7px;
   border-radius: 25px;
