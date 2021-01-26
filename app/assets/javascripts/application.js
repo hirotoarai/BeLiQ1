@@ -36,7 +36,7 @@ $(document).on("turbolinks:load", function(){
     readURL(this);
   });
 
-    /** jQueryの処理 */
+    /** スライドショーの処理 */
       $("#images").skippr({
         // スライドショーの変化 ("fade" or "slide")
         transition : 'fade',
@@ -61,7 +61,7 @@ $(document).on("turbolinks:load", function(){
       });
   });
 
-
+//クリックするとポップアップを表示
 $(function(){
 	$('.js-modal-open').on('click',function(){
 		$('.js-modal').fadeIn();
@@ -82,7 +82,7 @@ $(function() {
   });
 });
 
-// スクロールフェードイン
+// 文字が下からフェードインする
 $(function () {
   $(window).scroll(function () {
     $(".saito").each(function () {
@@ -116,6 +116,6 @@ $(function () {
 // });
 
   $(function(){
-    //フラッシュメッセージフェードアウト時間
+    //フラッシュメッセージフェードアウト時間(ミリ秒)
     $(".notice").fadeOut(20000);
   });
