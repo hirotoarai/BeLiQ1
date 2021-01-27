@@ -61,4 +61,32 @@
       </div>
     </div>
   </div>
+  <div class="container">
+    <div class="saito">
+      <table class="table table-hover table-inverse">
+        <tbody>
+          <h3>記事　いいね数ランキング</h3>
+          <% @all_ranks.each.with_index(1) do |post, i| %>
+            <tr>
+              <td><h4>第
+              <%= i %>
+                位
+              <div class="img_wrap">
+                <%= link_to post.title, post_path(post) %><h4></td>
+              </div>
+              <td>
+                <postddate>
+                  投稿日:<%= post.updated_at.strftime("%Y-%m-%d") %>
+                </postddate>
+              </td>
+    		      <td>
+    		        <i class="glyphicon glyphicon-thumbs-up"></i>
+                <%= post.favorites.count %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </body>
