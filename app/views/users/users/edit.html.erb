@@ -24,9 +24,9 @@
             	</tr>
   　　　　　　<tr>
             	<%= form_with model: @user do |f| %>
-                <div class="form-group">
-              		<%= f.attachment_field :profile_image %>
-              	</div>
+               <!-- <div class="form-group">-->
+              	<!--	<%#= f.attachment_field :profile_image %>-->
+              	<!--</div>-->
 
               	<div class="form-group">
               		<%= f.text_field :name, class: "name",placeholder: "名前", class: "form-control" %>
@@ -35,6 +35,17 @@
               	<div class="form-group">
               		<%= f.text_area :introduction, size: "100x10", class: "introduction",placeholder: "紹介文", class: "form-control" %>
               	</div>
+
+              	<div class="img_wrap">
+                  <div class="image_wrapper">
+                    <div class="item_image_btn">
+                      <%= f.attachment_field :profile_image, id: "file" %>
+                    </div>
+                    <div id="img_field" onClick="$('#file').click()" >
+                      <h3><span class="glyphicon glyphicon-cloud-upload" aria-hidden="true"></span></h3>
+                    </div>
+                  </div>
+                </div>
 
               	<div class="actions">
               		<%= f.submit "変更する", class: "btn btn-success" %>
