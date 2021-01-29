@@ -12,7 +12,7 @@
     		<div class="col-xs-12">
           <table class="table table-hover table-inverse">
             <tbody>
-            <% if @posts %>
+            <% if @posts.present? %>
             <h4>検索結果全体：<%= @post_all.count %>件ヒットしました。<h4>
             <h4>現在のページ：<%= @posts_all.count %>件あります。<h4>
       				<% @posts.each do |post| %>
@@ -56,6 +56,8 @@
                 </td>
               </tr>
       				<% end %>
+      			<% else %>
+      			<h4>該当の検索結果はありません。</h4>
     				<% end %>
     				</tbody>
     		  </table>
