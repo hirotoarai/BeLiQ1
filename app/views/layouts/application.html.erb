@@ -168,17 +168,8 @@
         </div>
       </div>
     </header>
-<!--    <div class="loading">-->
-<!--  <div class="loading-text">-->
-<!--    <span class="loading-text-words">L</span>-->
-<!--    <span class="loading-text-words">O</span>-->
-<!--    <span class="loading-text-words">A</span>-->
-<!--    <span class="loading-text-words">D</span>-->
-<!--    <span class="loading-text-words">I</span>-->
-<!--    <span class="loading-text-words">N</span>-->
-<!--    <span class="loading-text-words">G</span>-->
-<!--  </div>-->
-<!--</div>-->
+
+    <!--ユーザー側の背景-->
     <% if !admin_signed_in? %>
     <div id="box">
       <div id="images">
@@ -189,6 +180,7 @@
       </div>
     </div>
     <% else %>
+    <!--アドミン側の背景-->
     <div id="splash">
       <div id="images">
         <div class="hamabe"></div>
@@ -208,31 +200,12 @@
         <a href="#">
           <div class="navbar-footer">
             <a class="navbar-logo">
-              <!--<div class="img_wrap">-->
-                <!--<img src="main_logo.png" alt="">-->
-                  <%= image_tag 'main_logo.png', :width => '120', :height => '100', class: "btn img_wrap" %>
-                <!--</img>-->
-              <!--</div>-->
+              <%= image_tag 'main_logo.png', :width => '120', :height => '100', class: "btn img_wrap" %>
             </a>
           </div>
         </a>
       </span>
-      <!--<div class="navbar-footer">-->
-      <!--      <a class="navbar-logo">-->
-
-      <!--      </a>-->
-      <!--</div>-->
-
       <p class="footer-text">©2020 BiLeQ</p>
-        <!--<div class="row">-->
-        <!--  <div class="col-md-8 col-md-offset-2">-->
-        <!--      <ul class="nav navbar-nav navbar-right links">-->
-        <!--          <li>MENU</li>-->
-        <!--          <li><%#= link_to 'top', root_path %></li>-->
-        <!--          <li><%#= link_to 'about', about_path %></li>-->
-        <!--      </ul>-->
-        <!--  </div>-->
-        <!--</div>-->
     </footer>
   </body>
 </html>
