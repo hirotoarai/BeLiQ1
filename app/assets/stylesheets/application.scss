@@ -102,11 +102,6 @@ ol {
   text-align: left;
 }
 
-// .row {
-//   margin-bottom: 10px;
-//   margin-top: 10px;
-// }
-
 body{
   display: flex;
   flex-flow: column;
@@ -114,8 +109,6 @@ body{
 }
 
 #box{
-  // background-size: cover;
-  // background-attachment: fixed;
   position: fixed;
   z-index: -100;
   height: 100%;
@@ -140,8 +133,6 @@ body{
 }
 
 #splash{
-  // background-size: cover;
-  // background-attachment: fixed;
   position: fixed;
   z-index: -100;
   height: 100%;
@@ -164,12 +155,6 @@ body{
   background-image: image-url("hamabe4.jpg");
   height: 100%;
 }
-
-// .splash {
-//   background-image: image-url("hamabe.jpeg");
-//   background-size: cover;
-//   background-attachment: fixed;
-// }
 
 .notice {
   color: #FF0000;
@@ -208,10 +193,6 @@ footer {
   bottom: 0; /*下に固定*/
 }
 
-// .footer-text {
-//   margin-bottom: 300px;
-// }
-
 .pagination a {
   background-color: rgba(255, 255, 255, 0.7);
   // text-decoration: none;
@@ -222,16 +203,6 @@ footer {
   padding: 18px;
   border-radius: 25px;
 }
-
-// .font-center{
-//   line-height: 100px;
-//   text-align: center;
-// }
-
-// .footer-text{
-//   margin-bottom: 300px;
-//   text-align: center;
-// }
 
 .img_wrap{
   transition-duration: 0.5s;
@@ -250,33 +221,21 @@ footer {
 }
 
 .btn {
-  // padding: 10px 25px;
-  // font-family: "Roboto", sans-serif;
-  // font-weight: 500;
-  // background: transparent;
   outline: none !important;
   cursor: pointer;
   transition: all 0.3s ease;
   position: relative; //リンクを押した時に押し下げる
-  // display: inline-block;
-  // border: 2px solid #000;
   overflow: hidden; //ボタンを光らせる
   &:before {
     content: "";
     background-color: rgba(255,255,255,0.5);
     height: 100%;
     width: 3em;
-    // display: block;
     position: absolute; //ボタンを光らせる
     top: 0;
     left: -4.5em;
-    // transform: skewX(-45deg) translateX(0);
-    // transition: none;
   }
   &:hover {
-    // background-color: $color;
-    // color: #fff;
-    // border-bottom: 4px solid darken($color, 10%);
     &:before {
      transform: skewX(-45deg) translateX(13.5em); //ボタンを光らせる
      transition: all 0.5s ease-in-out; //ボタンを光らせる
@@ -285,7 +244,6 @@ footer {
 }
 
 .btn:hover {
-  // background: #000;
   transform: translateY(-8px); //マウスオーバーで文字を浮かせる
   color: #fff;
 }
@@ -294,14 +252,9 @@ footer {
 }
 
 .svg-wrapper {
-  // margin-top: 0;
-  // position: relative;
   width: 150px;
   height: 40px;
   display: inline-block;
-  // border-radius: 3px;
-  // margin-left: 5px;
-  // margin-right: 5px
 }
 
 #shape {
@@ -384,234 +337,9 @@ button:active {
   top: 2px; //リンクを押した時に押し下げる
 }
 
-
-
-
-// move > a {
-//   color: #006400;
-//   font-size: 20px;
-//   font-weight: 500;
-// }
-
-// move {
-//   margin: 20px;
-//   font-family: "Open Sans", sans-serif;
-//   font-weight: 300;
-//   text-align: center;
-//   color: #676767;
-// }
-// .custom-btn {
-//   padding: 10px 25px;
-//   font-family: "Roboto", sans-serif;
-//   font-weight: 500;
-//   background: transparent;
-//   outline: none !important;
-//   cursor: pointer;
-//   transition: all 0.3s ease;
-//   position: relative;
-//   display: inline-block;
-// }
-
-// .btn-4 {
-//   width: 130px;
-//   height: 40px;
-//   line-height: 42px;
-//   padding: 0;
-//   border: none;
-// }
-
-// .btn-4:before,
-// .btn-4:after {
-//   position: absolute;
-//   content: "";
-//   right: 0;
-//   top: 0;
-//   background: #000;
-//   transition: all 0.3s ease;
-// }
-// .btn-4:before {
-//   height: 50%;
-//   width: 2px;
-// }
-// .btn-4:after {
-//   width: 20%;
-//   height: 2px;
-// }
-// .btn-4:hover:before {
-//   height: 100%;
-// }
-// .btn-4:hover:after {
-//   width: 100%;
-// }
-
-// .btn-4 move:before,
-// .btn-4 move:after {
-//   position: absolute;
-//   content: "";
-//   left: 0;
-//   bottom: 0;
-//   background: #000;
-//   transition: all 0.3s ease;
-// }
-// .btn-4 move:before {
-//   width: 2px;
-//   height: 50%;
-// }
-// .btn-4 move:after {
-//   width: 20%;
-//   height: 2px;
-// }
-// .btn-4 move:hover:before {
-//   height: 100%;
-// }
-// .btn-4 move:hover:after {
-//   width: 100%;
-// }
-
-// move2 > a {
-//   color: #dc143c;
-//   font-size: 20px;
-//   font-weight: 500;
-// }
-
-// move2 {
-//   margin: 20px;
-//   font-family: "Open Sans", sans-serif;
-//   font-weight: 300;
-//   text-align: center;
-//   color: #676767;
-// }
-// .custom-btn2 {
-//   padding: 10px 25px;
-//   font-family: "Roboto", sans-serif;
-//   font-weight: 500;
-//   background: transparent;
-//   outline: none !important;
-//   cursor: pointer;
-//   transition: all 0.3s ease;
-//   position: relative;
-//   display: inline-block;
-// }
-
-// .btn-5 {
-//   width: 130px;
-//   height: 40px;
-//   line-height: 42px;
-//   padding: 0;
-//   border: none;
-// }
-
-// .btn-5:before,
-// .btn-5:after {
-//   position: absolute;
-//   content: "";
-//   right: 0;
-//   top: 0;
-//   background: #000;
-//   transition: all 0.3s ease;
-// }
-// .btn-5:before {
-//   height: 50%;
-//   width: 2px;
-// }
-// .btn-5:after {
-//   width: 20%;
-//   height: 2px;
-// }
-// .btn-5:hover:before {
-//   height: 100%;
-// }
-// .btn-5:hover:after {
-//   width: 100%;
-// }
-
-// .btn-5 move2:before,
-// .btn-5 move2:after {
-//   position: absolute;
-//   content: "";
-//   left: 0;
-//   bottom: 0;
-//   background: #000;
-//   transition: all 0.3s ease;
-// }
-// .btn-5 move2:before {
-//   width: 2px;
-//   height: 50%;
-// }
-// .btn-5 move2:after {
-//   width: 20%;
-//   height: 2px;
-// }
-// .btn-5 move2:hover:before {
-//   height: 100%;
-// }
-// .btn-5 move2:hover:after {
-//   width: 100%;
-// }
-
-
-// @import url(https://fonts.googleapis.com/css?family=Quattrocento+Sans);
-
-// @mixin position-center($text-align: center) {
-//   position: absolute;
-//   top: 0;
-//   bottom: 0;
-//   left: 0;
-//   right: 0;
-//   margin: auto;
-//   text-align: $text-align;
-// }
-
-// .loading {
-//   position: fixed;
-//   top: 0;
-//   left: 0;
-//   width: 100%;
-//   height: 100%;
-//   background: #000;
-//   z-index: 9999;
-// }
-
-// .loading-text {
-//   @include position-center;
-//   width: 100%;
-//   height: 100px;
-//   line-height: 100px;
-//   span {
-//     display: inline-block;
-//     margin: 0 5px;
-//     color: #fff;
-//     font-family: 'Quattrocento Sans', sans-serif;
-//     @for $i from 0 through 6 {
-//       &:nth-child(#{$i + 1}) {
-//         filter: blur(0px);
-//         animation: blur-text 1.5s (#{$i/5})+s infinite linear alternate;
-//       }
-//     }
-//   }
-// }
-
-// @keyframes blur-text {
-//   0% {filter: blur(0px);}
-//   100% {filter: blur(4px);}
-// }
-
 .item_image_btn{
     display: none; //元の送信ボタンを隠す
 }
-
-// #img_field {
-//   font-size: 25px;
-//   font-style: inherit;
-//   margin: 0 auto;
-//   color: white;
-//   background-color: #5bc0de;
-//   border-radius: 5px;
-//   width: 300px;
-//   height: 40px;
-//   text-align: center;
-//   line-height: 40px;
-// }
 
 postddate {
   background: rgba(65, 105, 225, 0.25);
