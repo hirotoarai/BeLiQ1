@@ -58,12 +58,15 @@
           <h3>タイトル</h3>
             <h4><%= @post.title %></h4>
           <h3>本文</h3>
+            <!--投稿した本文を折り返す-->
             <h4><%= safe_join(@post.body.split("\n"),tag(:br)) %></h4>
+            <!--クリックすると画像を拡大-->
             <a href="" data-lightbox="group" id="lightbox_link">
               <div class="img_wrap">
                 <%= attachment_image_tag(@post, :post_image, size: "300x300", id:"lightbox_img") %>
               </div>
             </a></br>
+            <!--クリックすると画像を拡大-->
             <script>
             var img_src = $('#lightbox_img').attr('src');
             $('#lightbox_link').attr('href',img_src);
@@ -82,20 +85,8 @@
               <h5>この記事にはタグがありません</h5>
             <% end %>
             <% if @post.user == current_user || admin_signed_in? %>
-              <!--<div class="btn">-->
-              <!--  <move class="custom-btn btn-4">-->
-              <!--    <move>-->
                     <%= link_to "編集する", edit_post_path(@post), class: "btn btn-success" %>
-              <!--    </move>-->
-              <!--  </move>-->
-              <!--</div>-->
-              <!--<div class="btn">-->
-              <!--  <move2 class="custom-btn2 btn-5">-->
-              <!--    <move2>-->
                     <%= link_to "削除する", post_path(@post), method: :delete, data: {confirm: "削除してよろしいですか？"}, class: "btn btn-danger" %>
-              <!--    </move2>-->
-              <!--  </move2>-->
-              <!--</div>-->
             <% end %>
         </div>
       </div>
