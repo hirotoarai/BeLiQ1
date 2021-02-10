@@ -1,6 +1,8 @@
 <body>
   <div class="container">
+    <!--背景の薄い白色-->
     <div class="saito">
+      <!--戻るボタン-->
       <%= link_to :back do %>
         <h2><span class="glyphicon glyphicon-hand-left" aria-hidden="true"></span></h2>
       <% end %>
@@ -13,11 +15,13 @@
               <tbody>
                 <tr>
                   <p><%= @user.name %></p>
+                  <!--クリックすると画像を拡大-->
                   <a href="" data-lightbox="group" id="lightbox_link">
                     <div class="img_wrap">
                       <%= attachment_image_tag @user, :profile_image, fallback: "no_image.jpg", class: "img-circle pull-left profile-thumb", size:'100x100', id:"lightbox_img" %>
                     </div>
                   </a></br>
+                  <!--クリックすると画像を拡大-->
                   <script>
                   var img_src = $('#lightbox_img').attr('src');
                   $('#lightbox_link').attr('href',img_src);
