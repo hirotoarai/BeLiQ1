@@ -21,6 +21,7 @@
             			</td>
 
       					   <td>
+      					     <!--登校最終日を表示-->
       					     <postddate>
       					       最終投稿日:<%= user.posts.order(:updated_at).last.updated_at.strftime("%Y-%m-%d") if user.posts.count > 0 %>
       					     </postddate>
