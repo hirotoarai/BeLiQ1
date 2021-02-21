@@ -5,6 +5,7 @@ class Post < ApplicationRecord
   has_many :tag_maps, dependent: :destroy
   has_many :tags, through: :tag_maps
 
+  # プレビュー機能の画像アップ用のメソッド
   attachment :post_image
 
   validates :title, presence: true, length: { maximum: 40, minimum: 2 }
