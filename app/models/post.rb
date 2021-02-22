@@ -7,9 +7,11 @@ class Post < ApplicationRecord
 
   # プレビュー機能の画像アップ用のメソッド
   attachment :post_image
-
+  # 投稿タイトルは２文字以上、４０文字以内とする
   validates :title, presence: true, length: { maximum: 40, minimum: 2 }
+  # 投稿内容は、１０００文字以内とする
   validates :body, presence: true, length: { maximum: 1000 }
+  # 投稿カテゴリー は必須事項
   validates :category, presence: true
 
   def favorited_by?(user)
