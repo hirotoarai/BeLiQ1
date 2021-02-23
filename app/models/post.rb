@@ -14,10 +14,12 @@ class Post < ApplicationRecord
   # 投稿カテゴリー は必須事項
   validates :category, presence: true
 
+  # いいねしているかどうかを確かめるメソッド
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
   end
 
+  # posts createのsave_tagを定義
   def save_tag(sent_tags)
     current_tags = self.tags.pluck(:tag_name) unless self.tags.nil?
     old_tags = current_tags - sent_tags
