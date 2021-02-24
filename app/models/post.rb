@@ -35,8 +35,10 @@ class Post < ApplicationRecord
     end
   end
 
+  # searchメソッドを定義
   def self.search(search, type)
     if search
+      # 投稿のタイトルと本文で検索
       Post.where('title LIKE ?', "%#{search}%")
       Post.where('body LIKE ?', "%#{search}%")
     else
