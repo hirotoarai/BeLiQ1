@@ -12,6 +12,7 @@ class User < ApplicationRecord
   has_many :follower_relationships, foreign_key: "following_id", class_name: "FollowRelationship", dependent: :destroy
   has_many :followers, through: :follower_relationships
 
+  # アタッチメントメソッドを追加
   attachment :profile_image, destroy: false
 
   validates :name, uniqueness: true, length: { maximum: 20, minimum: 2 }
