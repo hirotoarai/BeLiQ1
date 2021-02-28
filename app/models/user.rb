@@ -15,8 +15,12 @@ class User < ApplicationRecord
   # アタッチメントメソッドを追加
   attachment :profile_image, destroy: false
 
+  # ユーザー情報編集のバリデーション
+  # 名前は２文字以上、２０字以内
   validates :name, uniqueness: true, length: { maximum: 20, minimum: 2 }
+  # 自己紹介文は、５０字以内
   validates :introduction, length: { maximum: 50 }
+  # パスワードは、８文字以内
   validates :encrypted_password,    length: { minimum: 8 }
 
   def following?(other_user)
