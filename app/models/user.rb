@@ -27,6 +27,7 @@ class User < ApplicationRecord
     self.followings.include?(other_user)
   end
 
+  # フォローするユーザーが自分自身かどうか
   def follow(other_user)
     self.following_relationships.create(following_id: other_user.id)
   end
@@ -34,14 +35,4 @@ class User < ApplicationRecord
   def unfollow(other_user)
     self.following_relationships.find_by(following_id: other_user.id).destroy
   end
-
-  # def already_favorited?(post)
-  #   self.favorites.exists?(post_id: post.id)
-  # end
-
-  # def active_for_authentication?
-  #   super && (self.is_deleted == false)
-  # end
-
-  #scope :only_active, -> { where(is_active: true) }
 end
