@@ -1,8 +1,7 @@
 class Users::PostsController < ApplicationController
 
   def index
-    @user = current_user
-    @posts = @user.posts.all.page(params[:page]).per(10)
+    @posts = current_user.posts.all.page(params[:page]).per(10)
   end
 
   def show
