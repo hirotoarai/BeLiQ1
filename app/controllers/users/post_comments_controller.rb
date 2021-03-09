@@ -3,6 +3,7 @@ class Users::PostCommentsController < ApplicationController
   def create
     # ポストモデルから投稿の情報を取得
     @post = Post.find(params[:post_id])
+    # 空のコメントインスタンスを作成
     @post_comment = PostComment.new
     @user = current_user
     @post_tags = @post.tags
