@@ -6,6 +6,7 @@ class Users::PostCommentsController < ApplicationController
     # 空のコメントインスタンスを作成
     @post_comment = PostComment.new
     @user = current_user
+    # 投稿に関連するタグを作成
     @post_tags = @post.tags
     comment = current_user.post_comments.new(post_comment_params)
     comment.post_id = @post.id
