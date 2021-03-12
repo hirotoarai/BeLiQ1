@@ -10,6 +10,7 @@ class Users::PostCommentsController < ApplicationController
     @post_tags = @post.tags
     # 空のコメントインスタンスを作成
     comment = current_user.post_comments.new(post_comment_params)
+    # コメントのidが投稿のidの一致を確認
     comment.post_id = @post.id
     if comment.save
        redirect_back(fallback_location: post_post_comments_path)
