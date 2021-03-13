@@ -12,7 +12,9 @@ class Users::PostCommentsController < ApplicationController
     comment = current_user.post_comments.new(post_comment_params)
     # コメントのidが投稿のidの一致を確認
     comment.post_id = @post.id
+    # もしコメントを保存できたら
     if comment.save
+       # 前のページに戻る
        redirect_back(fallback_location: post_post_comments_path)
     else
        redirect_to post_path(@post), notice: 'コメントは３００文字以内で投稿できます。'
