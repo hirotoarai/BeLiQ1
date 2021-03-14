@@ -16,6 +16,7 @@ class Users::PostCommentsController < ApplicationController
     if comment.save
        # 前のページに戻る
        redirect_back(fallback_location: post_post_comments_path)
+    # コメントが保存されなかった時
     else
        redirect_to post_path(@post), notice: 'コメントは３００文字以内で投稿できます。'
     end
