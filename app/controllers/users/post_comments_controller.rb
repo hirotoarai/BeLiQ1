@@ -26,7 +26,6 @@ class Users::PostCommentsController < ApplicationController
   def destroy
   # 　ポストモデルから投稿の情報を取得
     @post = Post.find(params[:post_id])
-    #@user = User.find(params[@post.user_id])
     post_comment = @post.post_comments.find(params[:id])
     if post_comment.user != current_user
     end
