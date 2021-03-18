@@ -28,6 +28,7 @@ class Users::PostCommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     # ポストコメントモデルから情報を取得
     post_comment = @post.post_comments.find(params[:id])
+    # もしコメントしたユーザーが自分でなかった時
     if post_comment.user != current_user
     end
        post_comment.destroy
