@@ -31,6 +31,7 @@ class Users::PostCommentsController < ApplicationController
     # もしコメントしたユーザーが自分でなかった時
     if post_comment.user != current_user
     end
+      # コメントを削除
        post_comment.destroy
        redirect_back(fallback_location: post_post_comment_path)
   end
