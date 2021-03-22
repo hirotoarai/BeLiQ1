@@ -38,7 +38,7 @@ class Users::PostCommentsController < ApplicationController
   end
 
   private
-  送信された情報を
+  # 送信された情報を受け取る
   def post_comment_params
     params.require(:post_comment).permit(:content)
   end
