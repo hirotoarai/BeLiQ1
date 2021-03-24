@@ -1,6 +1,8 @@
 class Users::PostsController < ApplicationController
 
   def index
+    # ログインユーザーの投稿を全て表示
+    # 一ページにつき１０投稿まで
     @posts = current_user.posts.all.page(params[:page]).per(10)
   end
 
