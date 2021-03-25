@@ -7,6 +7,7 @@ class Users::PostsController < ApplicationController
   end
 
   def show
+    # 投稿の情報を取得
     @post = Post.find(params[:id])
     #投稿に関連するタグの取得
     @post_tags = @post.tags
