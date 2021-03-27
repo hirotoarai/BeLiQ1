@@ -13,6 +13,7 @@ class Users::PostsController < ApplicationController
     @post_tags = @post.tags
     # 投稿の空のインスタンスを作成
     @post_new = Post.new
+    # コメントの空のインスタンスを作成
     @post_comment = PostComment.new
     @post_comments = @post.post_comments.page(params[:page]).per(5)
     @user = User.find(@post.user_id)
