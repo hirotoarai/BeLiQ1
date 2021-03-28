@@ -15,6 +15,7 @@ class Users::PostsController < ApplicationController
     @post_new = Post.new
     # コメントの空のインスタンスを作成
     @post_comment = PostComment.new
+    # コメントと投稿を関連付ける
     @post_comments = @post.post_comments.page(params[:page]).per(5)
     @user = User.find(@post.user_id)
     @favorite = Favorite.new
