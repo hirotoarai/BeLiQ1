@@ -17,6 +17,7 @@ class Users::PostsController < ApplicationController
     @post_comment = PostComment.new
     # コメントと投稿を関連付ける
     @post_comments = @post.post_comments.page(params[:page]).per(5)
+    # ユーザーと投稿を関連付け
     @user = User.find(@post.user_id)
     @favorite = Favorite.new
   end
