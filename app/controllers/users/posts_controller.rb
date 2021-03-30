@@ -19,6 +19,7 @@ class Users::PostsController < ApplicationController
     @post_comments = @post.post_comments.page(params[:page]).per(5)
     # ユーザーと投稿を関連付け
     @user = User.find(@post.user_id)
+    # いいねの空のインスタンスを作成
     @favorite = Favorite.new
   end
 
