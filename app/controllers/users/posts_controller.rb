@@ -24,6 +24,7 @@ class Users::PostsController < ApplicationController
   end
 
   def create
+    # 投稿の空のインスタンスを作成
     @post = Post.new(post_params)
     tag_list = params[:post][:tag_name].split(nil)
     @post.user_id = current_user.id
