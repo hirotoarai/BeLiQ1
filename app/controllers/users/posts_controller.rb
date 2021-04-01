@@ -26,6 +26,7 @@ class Users::PostsController < ApplicationController
   def create
     # 投稿の空のインスタンスを作成
     @post = Post.new(post_params)
+    # 投稿とタグを関連付けする
     tag_list = params[:post][:tag_name].split(nil)
     @post.user_id = current_user.id
     if @post.save
