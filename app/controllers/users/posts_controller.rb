@@ -28,6 +28,7 @@ class Users::PostsController < ApplicationController
     @post = Post.new(post_params)
     # 投稿とタグを関連付けする
     tag_list = params[:post][:tag_name].split(nil)
+    # 投稿のユーザーidが現在のユーザーidと一致している
     @post.user_id = current_user.id
     if @post.save
       @post.save_tag(tag_list)
