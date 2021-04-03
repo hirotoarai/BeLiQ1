@@ -30,6 +30,7 @@ class Users::PostsController < ApplicationController
     tag_list = params[:post][:tag_name].split(nil)
     # 投稿のユーザーidが現在のユーザーidと一致している
     @post.user_id = current_user.id
+    # もし、投稿を保存できたとき
     if @post.save
       @post.save_tag(tag_list)
       redirect_to posts_path
