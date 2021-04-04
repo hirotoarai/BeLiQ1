@@ -32,6 +32,7 @@ class Users::PostsController < ApplicationController
     @post.user_id = current_user.id
     # もし、投稿を保存できたとき
     if @post.save
+      # 投稿に紐づいているタグを保存
       @post.save_tag(tag_list)
       redirect_to posts_path
     else
